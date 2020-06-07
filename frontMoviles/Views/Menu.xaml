@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="frontMoviles.Menu"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout" x:Key="WrapperTitulo">
+            <Setter Property="Margin" Value="1"></Setter>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelStyleOne">
+            <Setter Property="TextColor" Value="DarkGreen"></Setter>
+            <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelStyleTwo">
+            <Setter Property="TextColor" Value="White"></Setter>
+            <Setter Property="HorizontalOptions" Value="EndAndExpand"></Setter>
+            <Setter Property="FontSize" Value="Medium"></Setter>
+        </Style>
+
+        <Style TargetType="BoxView" x:Key="BoxStyleOne">
+            <Setter Property="HeightRequest" Value="5"></Setter>
+            <Setter Property="BackgroundColor" Value="Gray"></Setter>
+            <Setter Property="CornerRadius" Value="50"></Setter>
+        </Style>
+
+        <Style TargetType="Frame" x:Key="FrameStyleOne">
+            <Setter Property="BackgroundColor" Value="Gray"></Setter>
+            <Setter Property="Padding" Value="0"></Setter>
+            <Setter Property="Margin" Value="5,10"></Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonStyleOne">
+            <Setter Property="HorizontalOptions" Value="End"></Setter>
+            <Setter Property="VerticalOptions" Value="Start"></Setter>
+            <Setter Property="BackgroundColor" Value="White"></Setter>
+            <Setter Property="Margin" Value="10,5,0,5"></Setter>
+            <Setter Property="Padding" Value="0"></Setter>
+        </Style>
+
+        <Style TargetType="Image" x:Key="ImageStyleOne">
+            <Setter Property="HeightRequest" Value="100"></Setter>
+            <Setter Property="WidthRequest" Value="100"></Setter>
+            <Setter Property="Margin" Value="160,10,40,5"></Setter>
+            <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            <Setter Property="VerticalOptions" Value="Start"></Setter>
+        </Style>
+
+        <Style TargetType="Image" x:Key="ImageStyleTwo">
+            <Setter Property="HeightRequest" Value="120"></Setter>
+            <Setter Property="WidthRequest" Value="120"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            <Setter Property="VerticalOptions" Value="Start"></Setter>
+        </Style>
+
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                <Image Source="resvit" Style="{StaticResource ImageStyleOne}"></Image>
+                <Button Text="Salir" Style="{StaticResource ButtonStyleOne}" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+            <StackLayout Style="{StaticResource WrapperTitulo}">
+                <!-- Place new controls here -->
+                <Label Text="Nuestro Menu!" Style="{StaticResource LabelStyleOne}"></Label>
+                <!--<Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}"></Button>-->
+                <BoxView Style="{StaticResource BoxStyleOne}"></BoxView> <!--Line under the title-->
+            </StackLayout>
+            <Frame Style="{StaticResource FrameStyleOne}">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="curry" Style="{StaticResource ImageStyleTwo}"></Image>
+                    <Label Text="Pollo al curry: Plato tipico peruano con pedazos de la mas fina pechuga salteados con una salsa" Style="{StaticResource LabelStyleTwo}"></Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SeleccionarPlatoCommand}"  NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
