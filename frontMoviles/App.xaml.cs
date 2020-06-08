@@ -1,4 +1,5 @@
-﻿using System;
+﻿using frontMoviles.Services.Navigation;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,6 +7,23 @@ namespace frontMoviles
 {
     public partial class App : Application
     {
+        #region Properties
+        static NavigationService navigationService;
+        #endregion
+
+        #region Getters & Setters
+        public static NavigationService NavigationService
+        {
+            get
+            {
+                if (navigationService == null)
+                {
+                    navigationService = new NavigationService();
+                }
+                return navigationService;
+            }
+        }
+        #endregion Getters & Setters
         public App()
         {
             InitializeComponent();
@@ -15,7 +33,11 @@ namespace frontMoviles
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            //CrossFirebasePushNotification.Current.Subscribe("general");
+            //CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
+            //{
+            //    System.Diagnostics.Debug.WriteLine($"TOKEN : {p.Token}");
+            //};
         }
 
         protected override void OnSleep()
