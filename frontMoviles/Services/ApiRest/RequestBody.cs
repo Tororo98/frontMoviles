@@ -1,26 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Text;
+using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using System.Reflection;
 using frontMoviles.Models.AuxiliarModels;
+using Newtonsoft.Json;
+
 
 namespace frontMoviles.Services.ApiRest
 {
-    public class RequestParameters<T> : Request<T>
+    public class RequestBody<T> : Request<T>
     {
-        /*Verbos GET y DEL*/
-
-        public RequestParameters(string url, string verb)
+        public RequestBody(string url, string verb)
         {
             Url = url;
             Verb = verb;
         }
 
-        #region methods
         public override async Task<APIResponse> SendRequest(T objecto)
         {
+            /*Verbos POST y PUT*/
+
             APIResponse respuesta = new APIResponse()
             {
                 Code = 400,
@@ -28,14 +29,18 @@ namespace frontMoviles.Services.ApiRest
                 Response = ""
             };
 
+            string objetoJson = JsonConvert.SerializeObject(objecto);
+            HttpContent content = new StringContent(objetoJson, Encoding.UTF8, "application/json");
+
             try
             {
                 using (var client = new HttpClient())
                 {
-                    var verbHttp = (Verb == "GET") ? HttpMethod.Get : HttpMethod.Delete;
-                    client.Timeout = TimeSpan.FromSeconds(50);
+                    var verbHttp = (Verb == "POST") ? HttpMethod.Post : HttpMethod.Put;
                     HttpRequestMessage requestMessage = new HttpRequestMessage(verbHttp, UrlParameters);
-                    requestMessage = HeaderService.AddHeaders(requestMessage);
+                    //requestMessage = ServicioHeaders.AgregarCabeceras(requestMessage);
+                    requestMessage.Content = content;
+                    client.Timeout = TimeSpan.FromSeconds(50);
                     HttpResponseMessage HttpResponse = client.SendAsync(requestMessage).Result;
                     respuesta.Code = Convert.ToInt32(HttpResponse.StatusCode);
                     respuesta.IsSuccess = HttpResponse.IsSuccessStatusCode;
@@ -49,6 +54,5 @@ namespace frontMoviles.Services.ApiRest
 
             return respuesta;
         }
-        #endregion methods
     }
 }

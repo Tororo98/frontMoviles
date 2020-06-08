@@ -12,4 +12,3 @@ C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\r
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.pdb
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\Menu.xaml.g.cs
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\RegistroView.xaml.g.cs
-C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\XamlC.stamp
