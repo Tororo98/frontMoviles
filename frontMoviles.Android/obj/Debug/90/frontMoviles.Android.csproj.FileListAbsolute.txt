@@ -544,3 +544,5 @@ C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\links
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\ImageCircle.Forms.Plugin.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\src\md5ad349817c76b03b9d7836cf3a79439ae\ImageCircleRenderer.java
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\res\drawable\curry.png
+C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\linksrc\Newtonsoft.Json.dll
+C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\Newtonsoft.Json.dll

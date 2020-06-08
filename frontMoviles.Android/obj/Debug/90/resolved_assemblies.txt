@@ -5,6 +5,7 @@ C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\andro
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\Java.Interop.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\Mono.Android.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\mscorlib.dll
+C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\Newtonsoft.Json.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\Rg.Plugins.Popup.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\SQLite-net.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\obj\Debug\90\android\assets\SQLitePCLRaw.batteries_v2.dll
