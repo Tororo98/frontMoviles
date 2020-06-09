@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviors="clr-namespace:frontMoviles.Behaviors;assembly=frontMoviles"
+             mc:Ignorable="d"
+             x:Class="frontMoviles.Views.NewRegistroView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ContentPage" x:Key="Main">
+                <Setter Property="BackgroundColor" Value="White"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelStyleOne">
+                <Setter Property="TextColor" Value="DarkGreen"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+            </Style>
+            <Style TargetType="Entry" x:Key="EntryStyleOne">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+            </Style>
+
+            <Style TargetType="Button" x:Key="ButtonStyleOne">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="End"></Setter>
+                <Setter Property="BackgroundColor" Value="LightBlue"></Setter>
+                <Setter Property="Margin" Value="20"></Setter>
+                <Setter Property="Padding" Value="50,0"></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
+            </Style>
+
+            <Style TargetType="Button" x:Key="ButtonStyleTwo">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="End"></Setter>
+                <Setter Property="BackgroundColor" Value="White"></Setter>
+                <Setter Property="Margin" Value="20"></Setter>
+                <Setter Property="Padding" Value="50,0"></Setter>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="WrapperTitulo">
+                <Setter Property="Margin" Value="0,20"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+            </Style>
+
+            <Style TargetType="BoxView" x:Key="BoxStyleOne">
+                <Setter Property="HeightRequest" Value="5"></Setter>
+                <Setter Property="BackgroundColor" Value="Gray"></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
+            </Style>
+
+            <Style TargetType="Frame" x:Key="FrameStyleOne">
+                <Setter Property="BackgroundColor" Value="Gray"></Setter>
+                <Setter Property="Padding" Value="0"></Setter>
+                <Setter Property="Margin" Value="5,30"></Setter>
+            </Style>
+
+            <Style TargetType="Image" x:Key="ImageStyleOne">
+                <Setter Property="HeightRequest" Value="200"></Setter>
+                <Setter Property="WidthRequest" Value="200"></Setter>
+                <Setter Property="Margin" Value="0,5"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Style="{StaticResource WrapperTitulo}">
+                <!-- Place new controls here -->
+                <Label Text="Creacion de Usuarios" Style="{StaticResource LabelStyleOne}"></Label>
+                <!--<Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}"></Button>-->
+                <BoxView Style="{StaticResource BoxStyleOne}"></BoxView>
+                <!--<Image Source="resvit" Style="{StaticResource ImageStyleOne}"></Image>-->
+            </StackLayout>
+            <Frame Style="{StaticResource FrameStyleOne}">
+                <Entry Text="{Binding NombreUsuario.Value}" Style="{StaticResource EntryStyleOne}" Placeholder="Nombre Usuario" 
+                       IsEnabled="{Binding IsGuardarEditar}">
+                    <Entry.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateNombreUsuarioCommand}"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </Frame>
+            <Frame Style="{StaticResource FrameStyleOne}">
+                <Entry Text="{Binding ApellidoUsuario.Value}" Style="{StaticResource EntryStyleOne}" Placeholder="Apellido Usuario" 
+                       IsEnabled="{Binding IsGuardarEditar}">
+                    <Entry.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateApellidoUsuarioCommand}"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </Frame>
+            <Button Text="Crear Usuario" Command="{Binding CrearUserCommand}" Style="{StaticResource ButtonStyleOne}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

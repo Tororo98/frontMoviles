@@ -1065,23 +1065,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alejo\\.nuget\\packages\\": {},
+    "C:\\Users\\sebas\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alejo\\Documents\\Proyecto_Moviles\\frontMoviles\\frontMoviles\\frontMoviles.csproj",
+      "projectUniqueName": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj",
       "projectName": "frontMoviles",
-      "projectPath": "C:\\Users\\alejo\\Documents\\Proyecto_Moviles\\frontMoviles\\frontMoviles\\frontMoviles.csproj",
-      "packagesPath": "C:\\Users\\alejo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alejo\\Documents\\Proyecto_Moviles\\frontMoviles\\frontMoviles\\obj\\",
+      "projectPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj",
+      "packagesPath": "C:\\Users\\sebas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\alejo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sebas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1147,7 +1147,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -5,7 +5,7 @@ using frontMoviles.Models;
 
 namespace frontMoviles.Models
 {
-    class PlatoModel : NotificactionObject
+    class PlatoModel : NotificationObject
     {
         #region properties
         public long IdPlato { get; set; }

@@ -2,6 +2,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using frontMoviles.Views;
 
 namespace frontMoviles
 {
@@ -28,7 +29,7 @@ namespace frontMoviles
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new NewRegistroView());
         }
 
         protected override void OnStart()

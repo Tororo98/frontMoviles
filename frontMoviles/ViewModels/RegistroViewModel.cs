@@ -25,6 +25,8 @@ namespace frontMoviles.ViewModels
 
         private bool isGuardarEnable;
 
+        private bool isGuardarEditar;
+
         public MessageViewPop PopUp { get; set; }
 
         #region Requests
@@ -34,6 +36,8 @@ namespace frontMoviles.ViewModels
 
         #region Commands
         public ICommand CrearUserCommand { get; set; }
+        public ICommand ValidateNombreUsuarioCommand { get; set; }
+        public ICommand ValidateApellidoUsuarioCommand { get; set; }
         #endregion Commands
 
         #endregion Properties
@@ -59,6 +63,15 @@ namespace frontMoviles.ViewModels
                 OnPropertyChanged();
             }
         }
+        public bool IsGuardarEditar
+        {
+            get { return isGuardarEditar; }
+            set
+            {
+                isGuardarEditar = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion Getters & Setters
 
@@ -66,8 +79,10 @@ namespace frontMoviles.ViewModels
 
         public RegistroViewModel()
         {
+            PopUp = new MessageViewPop();
             Usuario = new User();
-            IsGuardarEnable = false;
+            IsGuardarEnable = true;
+            IsGuardarEditar = true;
             InitializeRequest();
             InitializeCommands();
             InitializeFields();
@@ -76,15 +91,17 @@ namespace frontMoviles.ViewModels
 
         public void InitializeRequest()
         {
-            string urlCrearCategoria = EndPoint.URL_SERVIDOR + EndPoint.CREAR_USER;
+            string urlCrearUsuario = EndPoint.URL_SERVIDOR + EndPoint.CREAR_USER;
 
             CreateUser = new ChooseRequest<User>();
-            CreateUser.ElegirEstrategia("POST", urlCrearCategoria);
+            CreateUser.ElegirEstrategia("POST", urlCrearUsuario);
 
         }
         public void InitializeCommands()
         {
             CrearUserCommand = new Command(async () => await GuardarUser(), () => IsGuardarEnable);
+            ValidateNombreUsuarioCommand = new Command(() => ValidateNombreUsuarioForm(), () => true);
+            ValidateApellidoUsuarioCommand = new Command(() => ValidateApellidoUsuarioForm(), () => true);
         }
 
         public void InitializeFields()
@@ -96,6 +113,7 @@ namespace frontMoviles.ViewModels
             ApellidoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El nombre de la categoria es Obligatorio" });
         }
 
+        #region Methods
         private async Task GuardarUser()
         {
             await CrearUsuario();
@@ -122,12 +140,12 @@ namespace frontMoviles.ViewModels
                 if (response.IsSuccess)
                 {
                     ((MessageViewModel)PopUp.BindingContext).Message = "Usuario creado exitosamente";
-                    //await PopupNavigation.Instance.PushAsync(PopUp);
+                    await PopupNavigation.Instance.PushAsync(PopUp);
                 }
                 else
                 {
                     ((MessageViewModel)PopUp.BindingContext).Message = "Error al crear el Usuario";
-                    //await PopupNavigation.Instance.PushAsync(PopUp);
+                    await PopupNavigation.Instance.PushAsync(PopUp);
                 }
             }
             catch (Exception e)
@@ -135,5 +153,17 @@ namespace frontMoviles.ViewModels
 
             }
         }
+        private void ValidateNombreUsuarioForm()
+        {
+            IsGuardarEnable = NombreUsuario.Validate();
+            ((Command)CrearUserCommand).ChangeCanExecute();
+        }
+
+        private void ValidateApellidoUsuarioForm()
+        {
+            isGuardarEnable = ApellidoUsuario.Validate();
+            ((Command)CrearUserCommand).ChangeCanExecute();
+        }
+        #endregion Methods
     }
 }

@@ -13,3 +13,5 @@ C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\f
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\Menu.xaml.g.cs
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\RegistroView.xaml.g.cs
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\MessageViewPop.xaml.g.cs
+C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\NewRegistroView.xaml.g.cs
