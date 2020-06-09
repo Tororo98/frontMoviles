@@ -25,6 +25,9 @@ namespace frontMoviles.Models
 
         [JsonProperty("correo")]
         public string Correo { get; set; }
+
+        [JsonProperty("idRol")]
+        public int IdRol { get; set; }
         #endregion properties
 
         #region Initialize

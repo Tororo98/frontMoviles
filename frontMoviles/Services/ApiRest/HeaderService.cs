@@ -14,7 +14,8 @@ namespace frontMoviles.Services
         #region Initialize
         public HeaderService()
         {
-            Headers.Add("content-type", "application/Json"); //Useful when making login and api token is
+            Headers = new Dictionary<string, string>();
+            Headers.Add("ContentType", "application/json"); //Useful when making login and api token is
         }                                                   //needed. If exists then send it, otherwise dont
         #endregion Initialize
 

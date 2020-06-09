@@ -18,10 +18,12 @@ namespace frontMoviles.ViewModels
     public class RegistroViewModel : ViewModelBase
     {
         #region Properties
-        private User usuario;
+       
 
         public ValidatableObject<string> NombreUsuario { get; set; }  //Campo de Busqueda
         public ValidatableObject<string> ApellidoUsuario { get; set; }
+
+        private User usuario;
 
         private bool isGuardarEnable;
 
@@ -66,8 +68,9 @@ namespace frontMoviles.ViewModels
 
         public RegistroViewModel()
         {
+            PopUp = new MessageViewPop();
             Usuario = new User();
-            IsGuardarEnable = false;
+            IsGuardarEnable = true;
             InitializeRequest();
             InitializeCommands();
             InitializeFields();
@@ -76,10 +79,10 @@ namespace frontMoviles.ViewModels
 
         public void InitializeRequest()
         {
-            string urlCrearCategoria = EndPoint.URL_SERVIDOR + EndPoint.CREAR_USER;
+            string urlCrearUsuario = EndPoint.URL_SERVIDOR + EndPoint.CREAR_USER;
 
             CreateUser = new ChooseRequest<User>();
-            CreateUser.ElegirEstrategia("POST", urlCrearCategoria);
+            CreateUser.ElegirEstrategia("POST", urlCrearUsuario);
 
         }
         public void InitializeCommands()
@@ -116,6 +119,7 @@ namespace frontMoviles.ViewModels
                     Apellido = "Last",
                     Correo = "Prueba@gmail.com",
                     Password = "123445",
+                    IdRol = 1
 
                 };
                 APIResponse response = await CreateUser.EjecutarEstrategia(usuario);

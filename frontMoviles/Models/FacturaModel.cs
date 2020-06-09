@@ -4,7 +4,7 @@ using System.Text;
 
 namespace frontMoviles.Models
 {
-    public class FacturaModel : NotificactionObject
+    public class FacturaModel : NotificationObject
     {
         #region properties
         public int IdFactura { get; set; }

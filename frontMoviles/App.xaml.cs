@@ -1,4 +1,5 @@
 ﻿using frontMoviles.Services.Navigation;
+using frontMoviles.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,7 +29,7 @@ namespace frontMoviles
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new RegistroView());
         }
 
         protected override void OnStart()

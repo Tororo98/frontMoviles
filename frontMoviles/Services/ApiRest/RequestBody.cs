@@ -47,9 +47,9 @@ namespace frontMoviles.Services.ApiRest
                     respuesta.Response = await HttpResponse.Content.ReadAsStringAsync();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                respuesta.Response = "Error al momento de llamar al servidor";
+                Console.WriteLine(e);
             }
 
             return respuesta;
