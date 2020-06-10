@@ -29,6 +29,7 @@ namespace frontMoviles.ViewModels
         private PlatoModel plato;
 
         private bool isGuardarEnable;
+        private bool isBuscarEnable;
 
         private ObservableCollection<PlatoModel> platos;
 
@@ -36,6 +37,8 @@ namespace frontMoviles.ViewModels
 
         #region Requests
         public ChooseRequest<PlatoModel> CreatePlate { get; set; }
+
+        public ChooseRequest<BaseModel> GetPlate { get; set; }
 
         public ChooseRequest<BaseModel> GetPlatos { get; set; }
 
@@ -45,6 +48,12 @@ namespace frontMoviles.ViewModels
         public ICommand CrearPlatoModelCommand { get; set; }
 
         public ICommand ListaPlatosCommand { get; set; }
+
+        public ICommand SelectPlateCommand { get; set; }
+
+        public ICommand ValidateBusquedaCommand { get; set; }
+        public ICommand ValidateNombrePlatoCommand { get; set; }
+
         #endregion Commands
 
         #endregion Properties
@@ -71,6 +80,16 @@ namespace frontMoviles.ViewModels
             }
         }
 
+        public bool IsBuscarEnable
+        {
+            get { return isBuscarEnable; }
+            set
+            {
+                isBuscarEnable = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ObservableCollection<PlatoModel> Platos
         {
             get { return platos; }
@@ -89,6 +108,7 @@ namespace frontMoviles.ViewModels
             PopUp = new MessageViewPop();
             Plato = new PlatoModel();
             IsGuardarEnable = true;
+            IsBuscarEnable = true;
             Platos = new ObservableCollection<PlatoModel>();
             InitializeRequest();
             InitializeCommands();
@@ -100,6 +120,10 @@ namespace frontMoviles.ViewModels
         {
             string urlCrearPlato = EndPoint.URL_SERVIDOR + EndPoint.CREAR_PLATO;
             string urlPlatos = EndPoint.URL_SERVIDOR + EndPoint.CONSULTAR_ALL_PLATES;
+            string urlBuscarPlato = EndPoint.URL_SERVIDOR + EndPoint.CONSULTAR_PLATE;
+
+            GetPlate = new ChooseRequest<BaseModel>();
+            GetPlate.ElegirEstrategia("GET", urlBuscarPlato);
 
             GetPlatos = new ChooseRequest<BaseModel>();
             GetPlatos.ElegirEstrategia("GET", urlPlatos);
@@ -111,7 +135,10 @@ namespace frontMoviles.ViewModels
         public void InitializeCommands()
         {
             CrearPlatoModelCommand = new Command(async () => await GuardarPlato(), () => IsGuardarEnable);
+            SelectPlateCommand = new Command(async () => await SelecccionarPlatoAComprar(), () => IsBuscarEnable);
             ListaPlatosCommand = new Command(async () => await ListarPlatos(), () => true);
+            ValidateBusquedaCommand = new Command(() => ValidateBusquedaForm(), () => true);
+            ValidateNombrePlatoCommand = new Command(() => ValidateNombrePlatoForm(), () => true);
         }
 
         public void InitializeFields()
@@ -175,6 +202,45 @@ namespace frontMoviles.ViewModels
                 ((MessageViewModel)PopUp.BindingContext).Message = "Error al cargar las categorías";
                 await PopupNavigation.Instance.PushAsync(PopUp);
             }
+        }
+
+        public async Task SelecccionarPlatoAComprar()
+        {
+            try
+            {
+                ParametersRequest parametros = new ParametersRequest();
+                var idPlato = "1";
+                parametros.Parameters.Add(idPlato/*BusquedaCategoria.Value*/);
+                APIResponse response = await GetPlate.EjecutarEstrategia(null, parametros);
+                if (response.IsSuccess)
+                {
+                    Plato = JsonConvert.DeserializeObject<PlatoModel>(response.Response);
+                    NombrePlato.Value = Plato.Nombre;
+                    //((Command)CrearCategoriaCommand).ChangeCanExecute();
+                    //((Command)EliminarCategoriaCommand).ChangeCanExecute();
+                }
+                else
+                {
+
+                    ((MessageViewModel)PopUp.BindingContext).Message = "No se encuentra ese Plato";
+                    await PopupNavigation.Instance.PushAsync(PopUp);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+        private void ValidateBusquedaForm()
+        {
+            IsBuscarEnable = Valor.Validate();
+            ((Command)SelectPlateCommand).ChangeCanExecute();
+        }
+
+        private void ValidateNombrePlatoForm()
+        {
+            IsGuardarEnable = NombrePlato.Validate();
+            ((Command)CrearPlatoModelCommand).ChangeCanExecute();
         }
     }
 }

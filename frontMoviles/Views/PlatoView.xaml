@@ -78,10 +78,29 @@
                 <BoxView Style="{StaticResource BoxStyleOne}"></BoxView>
             </StackLayout>
             <Frame>
+                <StackLayout Style="{StaticResource Busqueda}">
+                    <StackLayout>
+                        <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="Buscar Categoria: " Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Placeholder="Escriba el id" Text="{Binding BusquedaCategoria.Value}" Style="{StaticResource BusquedaEntry}">
+                                <Entry.Behaviors>
+                                    <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateBusquedaCommand}"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                        <Label Text="{Binding BusquedaCategoria.Errors, Converter={StaticResource FirstMessageError}}" Style="{StaticResource LabelError}"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Button Text="Buscar" Command="{Binding SelectCategoriaCommand}"></Button>
+                        <Button Text="Nuevo" Command="{Binding NuevaCategoriaCommand}"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame>
                 <StackLayout>
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Nombre Usuario" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Label Text="ID Plato" Style="{StaticResource BusquedaLabel}"></Label>
                             <Entry Text="{Binding Categoria.IdCategoria}" Style="{StaticResource ItemInfo}" Placeholder="Id Categoría"></Entry>
                         </StackLayout>
                         <StackLayout Style="{StaticResource RowBusqueda}">
