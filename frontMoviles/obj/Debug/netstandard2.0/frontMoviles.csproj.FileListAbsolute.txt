@@ -51,3 +51,5 @@ C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\V
 =======
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\PlatoView.xaml.g.cs
 >>>>>>> 22f192599d70d59c507233826671fd7616816447
+C:\Users\sebas\source\repos\frontApi\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\NewRegistroView.xaml.g.cs
+C:\Users\sebas\source\repos\frontApi\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\PlatoView.xaml.g.cs

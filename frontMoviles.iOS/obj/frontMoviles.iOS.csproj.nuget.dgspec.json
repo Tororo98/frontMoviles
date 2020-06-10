@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles.iOS\\frontMoviles.iOS.csproj": {}
+    "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles.iOS\\frontMoviles.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles.iOS\\frontMoviles.iOS.csproj": {
+    "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles.iOS\\frontMoviles.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles.iOS\\frontMoviles.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles.iOS\\frontMoviles.iOS.csproj",
         "projectName": "frontMoviles.iOS",
-        "projectPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles.iOS\\frontMoviles.iOS.csproj",
+        "projectPath": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles.iOS\\frontMoviles.iOS.csproj",
         "packagesPath": "C:\\Users\\sebas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles.iOS\\obj\\",
+        "outputPath": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
-                "projectPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj"
+              "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
+                "projectPath": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles\\frontMoviles.csproj"
               }
             }
           }
@@ -77,14 +77,14 @@
         }
       }
     },
-    "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
+    "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj",
+        "projectUniqueName": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles\\frontMoviles.csproj",
         "projectName": "frontMoviles",
-        "projectPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj",
+        "projectPath": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles\\frontMoviles.csproj",
         "packagesPath": "C:\\Users\\sebas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\obj\\",
+        "outputPath": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
