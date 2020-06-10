@@ -34,6 +34,8 @@ namespace frontMoviles.Services.ApiRest
                 {
                     var verbHttp = (Verb == "GET") ? HttpMethod.Get : HttpMethod.Delete;
                     client.Timeout = TimeSpan.FromSeconds(50);
+                    Console.WriteLine(verbHttp);
+                    Console.WriteLine(UrlParameters);
                     HttpRequestMessage requestMessage = new HttpRequestMessage(verbHttp, UrlParameters);
                     requestMessage = HeaderService.AddHeaders(requestMessage);
                     HttpResponseMessage HttpResponse = client.SendAsync(requestMessage).Result;
@@ -42,9 +44,9 @@ namespace frontMoviles.Services.ApiRest
                     respuesta.Response = await HttpResponse.Content.ReadAsStringAsync();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                respuesta.Response = "Error al momento de llamar al servidor";
+                Console.WriteLine(e);
             }
 
             return respuesta;

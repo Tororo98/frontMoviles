@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using frontMoviles.ViewModels;
 
 namespace frontMoviles.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MessageViewPop
+    public partial class PlatoView : ContentPage
     {
-        MessageViewModel context = new MessageViewModel();
-        public MessageViewPop()
+        PlatosViewModel context = new PlatosViewModel();
+        public PlatoView()
         {
             InitializeComponent();
             BindingContext = context;
