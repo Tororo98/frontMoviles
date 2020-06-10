@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using frontMoviles.Models;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;

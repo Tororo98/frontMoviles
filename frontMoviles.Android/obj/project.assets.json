@@ -2309,24 +2309,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pc01a\\.nuget\\packages\\": {},
+    "C:\\Users\\sebas\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles.Android\\frontMoviles.Android.csproj",
+      "projectUniqueName": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles.Android\\frontMoviles.Android.csproj",
       "projectName": "frontMoviles.Android",
-      "projectPath": "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles.Android\\frontMoviles.Android.csproj",
-      "packagesPath": "C:\\Users\\pc01a\\.nuget\\packages\\",
-      "outputPath": "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles.Android\\obj\\",
+      "projectPath": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles.Android\\frontMoviles.Android.csproj",
+      "packagesPath": "C:\\Users\\sebas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\pc01a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sebas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2340,8 +2340,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
-              "projectPath": "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles\\frontMoviles.csproj"
+            "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
+              "projectPath": "C:\\Users\\sebas\\source\\repos\\frontApi\\frontMoviles\\frontMoviles\\frontMoviles.csproj"
             }
           }
         }
