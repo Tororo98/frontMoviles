@@ -126,12 +126,12 @@ namespace frontMoviles.ViewModels
                 if (response.IsSuccess)
                 {
                     ((MessageViewModel)PopUp.BindingContext).Message = "Usuario creado exitosamente";
-                    //await PopupNavigation.Instance.PushAsync(PopUp);
+                    await PopupNavigation.Instance.PushAsync(PopUp);
                 }
                 else
                 {
                     ((MessageViewModel)PopUp.BindingContext).Message = "Error al crear el Usuario";
-                    //await PopupNavigation.Instance.PushAsync(PopUp);
+                    await PopupNavigation.Instance.PushAsync(PopUp);
                 }
             }
             catch (Exception e)

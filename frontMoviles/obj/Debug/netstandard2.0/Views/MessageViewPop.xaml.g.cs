@@ -14,7 +14,7 @@ namespace frontMoviles.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\MessageViewPop.xaml")]
-    public partial class MessageViewPop : global::Xamarin.Forms.ContentPage {
+    public partial class MessageViewPop : global::Rg.Plugins.Popup.Pages.PopupPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {

@@ -29,3 +29,4 @@ D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\bin\Debug\netstandard2.0\fr
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\bin\Debug\netstandard2.0\ref\frontMoviles.dll
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\bin\Debug\netstandard2.0\frontMoviles.pdb
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\PlatoView.xaml.g.cs
