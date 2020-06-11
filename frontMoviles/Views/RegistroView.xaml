@@ -179,8 +179,8 @@
                         <Label Text="{Binding CorreoUsuario.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <Button Text="Guardar" Command="{Binding CrearUserCommand}"></Button>
-                        <Button Text="Eliminar" Command="{Binding EliminarCategoriaCommand}"></Button>
+                        <Button Text="Guardar" Command="{Binding CrearUserCommand}" HorizontalOptions="Center"></Button>
+                        <!--<Button Text="Eliminar" Command="{Binding EliminarCategoriaCommand}"></Button>-->
                     </StackLayout>
                 </StackLayout>
             </Frame>
