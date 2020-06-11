@@ -78,11 +78,11 @@
                 <BoxView Style="{StaticResource BoxStyleOne}"></BoxView>
             </StackLayout>
             <Frame>
-                <StackLayout Style="{StaticResource Busqueda}">
-                    <StackLayout>
+                <StackLayout>
+                    <StackLayout  HorizontalOptions="FillAndExpand">
                         <StackLayout Style="{StaticResource RowBusqueda}">
                             <Label Text="Buscar Plato: " Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Placeholder="Escriba el id" Text="{Binding BusquedaPlato.Value}" Style="{StaticResource BusquedaEntry}">
+                            <Entry Placeholder="Escriba el id" Text="{Binding BusquedaPlato.Value}" Style="{StaticResource BusquedaEntry}" HorizontalOptions="FillAndExpand">
                                 <Entry.Behaviors>
                                     <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateBusquedaCommand}"/>
                                 </Entry.Behaviors>
@@ -90,7 +90,7 @@
                         </StackLayout>
                         <Label Text="{Binding BusquedaPlato.Errors, Converter={StaticResource FirstMessageError}}" Style="{StaticResource LabelError}"/>
                     </StackLayout>
-                    <StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Button Text="Buscar" Command="{Binding SelectPlateCommand}"></Button>
                         <Button Text="Facturar" Command="{Binding FacturarCommand}"></Button>
                     </StackLayout>
@@ -101,7 +101,7 @@
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <StackLayout Style="{StaticResource RowBusqueda}">
                             <Label Text="Nombre Plato" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding NombrePlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Plato" IsEnabled="True">
+                            <Entry Text="{Binding NombrePlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Plato" IsEnabled="True" HorizontalOptions="FillAndExpand">
                                 <Entry.Behaviors>
                                     <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatoNombrePlateCommand}"/>
                                 </Entry.Behaviors>

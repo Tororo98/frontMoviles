@@ -11,7 +11,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Rg.Plugins.Popup/2.0.0.2": {
+      "Rg.Plugins.Popup/2.0.0.3": {
         "type": "package",
         "dependencies": {
           "Xamarin.Forms": "4.5.0.530"
@@ -885,7 +885,7 @@
           "lib/monoandroid90/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/4.6.0.800": {
+      "Xamarin.Forms/4.6.0.847": {
         "type": "package",
         "dependencies": {
           "Xamarin.Android.Support.CustomTabs": "28.0.0.3",
@@ -918,10 +918,10 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
-          "Rg.Plugins.Popup": "2.0.0.2",
+          "Rg.Plugins.Popup": "2.0.0.3",
           "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.800",
+          "Xamarin.Forms": "4.6.0.847",
           "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
@@ -965,10 +965,10 @@
         "packageIcon.png"
       ]
     },
-    "Rg.Plugins.Popup/2.0.0.2": {
-      "sha512": "UExzgLevcih/oDokftGPKRqaefS65ByAOeaFzfr1Qy2opeyv9+eR0hDWotGb0hPI5JFHD7NJv5aK6NbTM3WuLw==",
+    "Rg.Plugins.Popup/2.0.0.3": {
+      "sha512": "/lrKxxsdaF9T+YEnVDaUMj0angdRyvpngSmX8veY/QYhSjT4x3guJTsL8O8D4egDf7MI5McnmMAsst0tkN1LOA==",
       "type": "package",
-      "path": "rg.plugins.popup/2.0.0.2",
+      "path": "rg.plugins.popup/2.0.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1009,7 +1009,7 @@
         "lib/xamarinwatchos10/Rg.Plugins.Popup.pdb",
         "lib/xamarinwatchos10/Rg.Plugins.Popup.xml",
         "readme.txt",
-        "rg.plugins.popup.2.0.0.2.nupkg.sha512",
+        "rg.plugins.popup.2.0.0.3.nupkg.sha512",
         "rg.plugins.popup.nuspec"
       ]
     },
@@ -1977,10 +1977,10 @@
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/4.6.0.800": {
-      "sha512": "9BkqdiqdaigD+QlHqmHHMm32NNo7mnuIG+fOgIbSbzzqT1MKN+KPVgem8OUkKOnFP4u6piq9D99xrVafKSztIg==",
+    "Xamarin.Forms/4.6.0.847": {
+      "sha512": "xUUgs1/xDdS9I/oN2UkdRwd/YToqg0qhwIK8yvyJJ2Xbhsc1ssV4/DUICdjuwCttzeiAcrhILqD+0BQhifUfxw==",
       "type": "package",
-      "path": "xamarin.forms/4.6.0.800",
+      "path": "xamarin.forms/4.6.0.847",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2286,7 +2286,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.4.6.0.800.nupkg.sha512",
+        "xamarin.forms.4.6.0.847.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -2299,34 +2299,34 @@
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v9.0": [
       "Newtonsoft.Json >= 12.0.3",
-      "Rg.Plugins.Popup >= 2.0.0.2",
+      "Rg.Plugins.Popup >= 2.0.0.3",
       "Xam.Plugins.Forms.ImageCircle >= 3.0.0.5",
       "Xamarin.Android.Support.Core.Utils >= 28.0.0.3",
       "Xamarin.Essentials >= 1.5.3.2",
-      "Xamarin.Forms >= 4.6.0.800",
+      "Xamarin.Forms >= 4.6.0.847",
       "frontMoviles >= 1.0.0",
       "sqlite-net-pcl >= 1.7.335"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pc01a\\.nuget\\packages\\": {},
+    "C:\\Users\\sebas\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles.Android\\frontMoviles.Android.csproj",
+      "projectUniqueName": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles.Android\\frontMoviles.Android.csproj",
       "projectName": "frontMoviles.Android",
-      "projectPath": "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles.Android\\frontMoviles.Android.csproj",
-      "packagesPath": "C:\\Users\\pc01a\\.nuget\\packages\\",
-      "outputPath": "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles.Android\\obj\\",
+      "projectPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles.Android\\frontMoviles.Android.csproj",
+      "packagesPath": "C:\\Users\\sebas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\pc01a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sebas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2340,8 +2340,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
-              "projectPath": "D:\\Universidad\\8vo\\Moviles\\frontMoviles\\frontMoviles\\frontMoviles.csproj"
+            "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
+              "projectPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj"
             }
           }
         }
@@ -2356,7 +2356,7 @@
           },
           "Rg.Plugins.Popup": {
             "target": "Package",
-            "version": "[2.0.0.2, )"
+            "version": "[2.0.0.3, )"
           },
           "Xam.Plugins.Forms.ImageCircle": {
             "target": "Package",
@@ -2372,7 +2372,7 @@
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[4.6.0.800, )"
+            "version": "[4.6.0.847, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
