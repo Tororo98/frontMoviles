@@ -22,6 +22,8 @@ namespace frontMoviles.ViewModels
 
         public ValidatableObject<string> NombreUsuario { get; set; }  //Campo de Busqueda
         public ValidatableObject<string> ApellidoUsuario { get; set; }
+        public ValidatableObject<string> CorreoUsuario { get; set; }
+        public ValidatableObject<string> Password { get; set; }
 
         private User usuario;
 
@@ -36,6 +38,8 @@ namespace frontMoviles.ViewModels
 
         #region Commands
         public ICommand CrearUserCommand { get; set; }
+
+        public ICommand VolverCommand { get; set; }
         #endregion Commands
 
         #endregion Properties
@@ -88,15 +92,20 @@ namespace frontMoviles.ViewModels
         public void InitializeCommands()
         {
             CrearUserCommand = new Command(async () => await GuardarUser(), () => IsGuardarEnable);
+            VolverCommand = new Command(async () => await Volver(), () => true);
         }
 
         public void InitializeFields()
         {
             NombreUsuario = new ValidatableObject<string>();
             ApellidoUsuario = new ValidatableObject<string>();
+            CorreoUsuario = new ValidatableObject<string>();
+            Password = new ValidatableObject<string>();
 
-            NombreUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Id es Obligatorio" });
-            ApellidoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El nombre de la categoria es Obligatorio" });
+            NombreUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Nombre es Obligatorio" });
+            ApellidoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Apellido es Obligatorio" });
+            CorreoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Correo es Obligatorio" });
+            Password.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Password es Obligatorio" });
         }
 
         private async Task GuardarUser()
@@ -107,21 +116,31 @@ namespace frontMoviles.ViewModels
   
         }
 
+        public async Task Volver()
+        {
+            await NavigationService.PopPage();
+        }
         public async Task CrearUsuario()
         {
             try
             {
                 User usuario = new User()
                 {
-                    //Nombre = NombreUsuario.Value,
-                    //Apellido = ApellidoUsuario.Value
-                    Nombre = "PruebaNombre",
-                    Apellido = "Last",
-                    Correo = "Prueba@gmail.com",
+                    Nombre = NombreUsuario.Value,
+                    Apellido = ApellidoUsuario.Value,
+                    Correo = CorreoUsuario.Value,
                     Password = "123445",
-                    IdRol = 1
+                    //Password = Password.Value,
+                    IdRol = 1,
 
+
+                    //Nombre = "PruebaNombre",
+                    //Apellido = "Last",
+                    //Correo = "Prueba@gmail.com",
+                    //Password = "123445",
+                    //IdRol = 1
                 };
+
                 APIResponse response = await CreateUser.EjecutarEstrategia(usuario);
                 if (response.IsSuccess)
                 {

@@ -82,10 +82,12 @@
             <Frame Style="{StaticResource FrameStyleOne}">
                 <Entry Placeholder="Ingrese su password" IsPassword="True" Style="{StaticResource EntryStyleOne}" x:Name="EntryPass"></Entry>
             </Frame>
-            <Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}"
+            <Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}" Command="{Binding LoginCommand}" HorizontalOptions="Center"></Button>
+            <Button Text="Registrar" Style="{StaticResource ButtonStyleTwo}" Command="{Binding RegistrarCommand}" HorizontalOptions="Center"></Button>
+            <!--<Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}"
                     Clicked="Button_Clicked"></Button>
             <Button Text="Registrar" Style="{StaticResource ButtonStyleTwo}"
-                    Clicked="Button_Clicked_1"></Button>
+                    Clicked="Button_Clicked_1"></Button>-->
         </StackLayout>
     </ContentPage.Content>
 

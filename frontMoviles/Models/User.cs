@@ -17,9 +17,6 @@ namespace frontMoviles.Models
         [JsonProperty("apellidos")]
         private string apellido;
 
-        [JsonIgnore]
-        private string username;
-
         [JsonProperty("contrasena")]
         public string Password { get; set; }
 
@@ -51,16 +48,6 @@ namespace frontMoviles.Models
             set
             {
                 apellido = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string Username
-        {
-            get { return username; }
-            set
-            {
-                username = value;
                 OnPropertyChanged();
             }
         }

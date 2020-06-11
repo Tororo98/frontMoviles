@@ -32,7 +32,7 @@ namespace frontMoviles.ViewModels
 
         private PlatoModel plato;
 
-        private bool isGuardarEnable;
+        private bool isFacturarEnable;
         private bool isBuscarEnable;
 
         private ObservableCollection<PlatoModel> platos;
@@ -50,6 +50,8 @@ namespace frontMoviles.ViewModels
 
         #region Commands
         public ICommand CrearPlatoModelCommand { get; set; }
+
+        public ICommand FacturarCommand { get; set; }
 
         public ICommand ListaPlatosCommand { get; set; }
 
@@ -86,10 +88,10 @@ namespace frontMoviles.ViewModels
         }
         public bool IsGuardarEnable
         {
-            get { return isGuardarEnable; }
+            get { return isFacturarEnable; }
             set
             {
-                isGuardarEnable = value;
+                isFacturarEnable = value;
                 OnPropertyChanged();
             }
         }
@@ -121,7 +123,7 @@ namespace frontMoviles.ViewModels
         {
             PopUp = new MessageViewPop();
             Plato = new PlatoModel();
-            IsGuardarEnable = true;
+            isFacturarEnable = false;
             IsBuscarEnable = true;
             Platos = new ObservableCollection<PlatoModel>();
             ListaPlatos = new List<PlatoModel>();
@@ -149,11 +151,12 @@ namespace frontMoviles.ViewModels
         }
         public void InitializeCommands()
         {
-            CrearPlatoModelCommand = new Command(async () => await GuardarPlato(), () => IsGuardarEnable);
+            CrearPlatoModelCommand = new Command(async () => await GuardarPlato(), () => true);
             SelectPlateCommand = new Command(async () => await SelecccionarPlatoAComprar(), () => IsBuscarEnable);
             ListaPlatosCommand = new Command(async () => await ListarPlatos(), () => true);
             ValidateBusquedaCommand = new Command(() => ValidateBusquedaForm(), () => true);
             ValidateNombrePlatoCommand = new Command(() => ValidateNombrePlatoForm(), () => true);
+            FacturarCommand = new Command(async () => await NavegarFactura(), () => isFacturarEnable);
         }
 
         public void InitializeFields()
@@ -220,6 +223,10 @@ namespace frontMoviles.ViewModels
             }
         }
 
+        public async Task NavegarFactura()
+        {
+            await NavigationService.PushPage(new FacturaView(ListaPlatos), ListaPlatos);
+        }
         public async Task SelecccionarPlatoAComprar()
         {
             try
@@ -234,9 +241,8 @@ namespace frontMoviles.ViewModels
                     Plato = JsonConvert.DeserializeObject<PlatoModel>(response.Response);
                     NombrePlato.Value = Plato.Nombre;
                     ValorPlato.Value = Plato.Valor;
-                    IsGuardarEnable = true;
-                    ListaPlatos.Add(Plato);
-                    await NavigationService.PushPage(new FacturaView(ListaPlatos), ListaPlatos);
+                    isFacturarEnable = true;
+                    ListaPlatos.Add(Plato);                    
                 }
                 else
                 {

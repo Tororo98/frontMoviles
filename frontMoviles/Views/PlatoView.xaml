@@ -92,7 +92,7 @@
                     </StackLayout>
                     <StackLayout>
                         <Button Text="Buscar" Command="{Binding SelectPlateCommand}"></Button>
-                        <Button Text="Nuevo" Command="{Binding NuevaCategoriaCommand}"></Button>
+                        <Button Text="Facturar" Command="{Binding FacturarCommand}"></Button>
                     </StackLayout>
                 </StackLayout>
             </Frame>

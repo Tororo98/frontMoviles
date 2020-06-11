@@ -91,7 +91,9 @@
         </StackLayout>
     </ContentPage.Content>-->
 
-    <ContentPage.Resources>
+    <!--Esta es la vista del AppGestionTiendas-->
+
+    <!--<ContentPage.Resources>
         <ResourceDictionary>
 
             <converters:FirstMessageError x:Key="FirstMessageError" />
@@ -180,6 +182,102 @@
                         <Button Text="Guardar" Command="{Binding CrearUserCommand}"></Button>
                         <Button Text="Eliminar" Command="{Binding EliminarCategoriaCommand}"></Button>
                     </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>-->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <converters:FirstMessageError x:Key="FirstMessageError" />
+
+            <Style TargetType="StackLayout" x:Key="Busqueda">
+                <Setter Property="Orientation" Value="Horizontal"></Setter>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="RowBusqueda">
+                <Setter Property="Orientation" Value="Horizontal"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
+                <Setter Property="Margin" Value="10,0"></Setter>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="Opciones">
+                <Setter Property="Orientation" Value="Horizontal"></Setter>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="BusquedaEntry">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="BusquedaLabel">
+                <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+            <Style TargetType="FlexLayout" x:Key="RowInfo">
+                <Setter Property="Direction" Value="Row"></Setter>
+                <Setter Property="AlignItems" Value="Center"></Setter>
+                <Setter Property="JustifyContent" Value="SpaceBetween"></Setter>
+                <Setter Property="Margin" Value="10,0"></Setter>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="ItemInfo">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="WrapperTitulo">
+                <Setter Property="Margin" Value="0,20"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="Orientation" Value="Vertical"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelStyleOne">
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelError">
+                <Setter Property="Margin" Value="10,0"></Setter>
+                <Setter Property="TextColor" Value="Red"></Setter>
+            </Style>
+
+            <Style TargetType="BoxView" x:Key="BoxStyleOne">
+                <Setter Property="HeightRequest" Value="5"></Setter>
+                <Setter Property="BackgroundColor" Value="DarkBlue"></Setter>
+                <Setter Property="CornerRadius" Value="25"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Style="{StaticResource WrapperTitulo}">
+                <Label Text="Usuarios" Style="{StaticResource LabelStyleOne}"></Label>
+                <BoxView Style="{StaticResource BoxStyleOne}"></BoxView>
+            </StackLayout>
+            <Frame>
+                <StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="Nombre Usuario" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding NombreUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Usuario"></Entry>
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="Apellido Usuario" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding ApellidoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Apellido Usuario"></Entry>
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="Correo" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding CorreoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Correo"></Entry>
+                        </StackLayout>
+                        <Label Text="{Binding CorreoUsuario.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Button Text="Guardar" Command="{Binding CrearUserCommand}" HorizontalOptions="Center"></Button>
+                        <Button Text="Atrás" Command="{Binding VolverCommand}"></Button>
+                    </StackLayout> 
                 </StackLayout>
             </Frame>
         </StackLayout>

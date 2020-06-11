@@ -1,4 +1,5 @@
 ﻿using frontMoviles.Table;
+using frontMoviles.ViewModels;
 using frontMoviles.Views;
 using SQLite;
 using System;
@@ -17,9 +18,11 @@ namespace frontMoviles
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        LoginViewModel context = new LoginViewModel();
         public MainPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            BindingContext = context;
         }
 
         void Button_Clicked(object sender, EventArgs e)
