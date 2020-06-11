@@ -23,8 +23,12 @@ namespace frontMoviles.ViewModels
     {
         #region Properties
         
-        public ValidatableObject<string> NombrePlato { get; set; }  //Campo de Busqueda
-        public ValidatableObject<string> Valor { get; set; }
+        public ValidatableObject<string> BusquedaPlato { get; set; }  //Campo de Busqueda
+        public ValidatableObject<string> NombrePlato { get; set; }
+
+        public ValidatableObject<float> ValorPlato { get; set; }
+
+        private List<PlatoModel> listaPlatos;
 
         private PlatoModel plato;
 
@@ -70,6 +74,16 @@ namespace frontMoviles.ViewModels
             }
         }
 
+        public List<PlatoModel> ListaPlatos
+        {
+            get { return listaPlatos; }
+            set
+            {
+                listaPlatos = value;
+                OnPropertyChanged();
+            }
+
+        }
         public bool IsGuardarEnable
         {
             get { return isGuardarEnable; }
@@ -110,6 +124,7 @@ namespace frontMoviles.ViewModels
             IsGuardarEnable = true;
             IsBuscarEnable = true;
             Platos = new ObservableCollection<PlatoModel>();
+            ListaPlatos = new List<PlatoModel>();
             InitializeRequest();
             InitializeCommands();
             InitializeFields();
@@ -143,11 +158,12 @@ namespace frontMoviles.ViewModels
 
         public void InitializeFields()
         {
+            BusquedaPlato = new ValidatableObject<string>();
             NombrePlato = new ValidatableObject<string>();
-            Valor = new ValidatableObject<string>();
+            ValorPlato = new ValidatableObject<float>();
 
-            NombrePlato.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Id es Obligatorio" });
-            Valor.Validations.Add(new RequiredRule<string> { ValidationMessage = "El nombre de la categoria es Obligatorio" });
+            BusquedaPlato.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Id es Obligatorio" });
+            NombrePlato.Validations.Add(new RequiredRule<string> { ValidationMessage = "El nombre de la categoria es Obligatorio" });
         }
 
         private async Task GuardarPlato()
@@ -212,12 +228,15 @@ namespace frontMoviles.ViewModels
                 var idPlato = "1";
                 parametros.Parameters.Add(idPlato/*BusquedaCategoria.Value*/);
                 APIResponse response = await GetPlate.EjecutarEstrategia(null, parametros);
+                Console.WriteLine(response.Response);
                 if (response.IsSuccess)
                 {
                     Plato = JsonConvert.DeserializeObject<PlatoModel>(response.Response);
                     NombrePlato.Value = Plato.Nombre;
-                    //((Command)CrearCategoriaCommand).ChangeCanExecute();
-                    //((Command)EliminarCategoriaCommand).ChangeCanExecute();
+                    ValorPlato.Value = Plato.Valor;
+                    IsGuardarEnable = true;
+                    ListaPlatos.Add(Plato);
+                    await NavigationService.PushPage(new FacturaView(ListaPlatos), ListaPlatos);
                 }
                 else
                 {
@@ -228,18 +247,18 @@ namespace frontMoviles.ViewModels
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e);
             }
         }
         private void ValidateBusquedaForm()
         {
-            IsBuscarEnable = Valor.Validate();
+            IsBuscarEnable = NombrePlato.Validate();
             ((Command)SelectPlateCommand).ChangeCanExecute();
         }
 
         private void ValidateNombrePlatoForm()
         {
-            IsGuardarEnable = NombrePlato.Validate();
+            IsGuardarEnable = BusquedaPlato.Validate();
             ((Command)CrearPlatoModelCommand).ChangeCanExecute();
         }
     }

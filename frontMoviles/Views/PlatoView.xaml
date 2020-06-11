@@ -81,17 +81,17 @@
                 <StackLayout Style="{StaticResource Busqueda}">
                     <StackLayout>
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Buscar Categoria: " Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Placeholder="Escriba el id" Text="{Binding BusquedaCategoria.Value}" Style="{StaticResource BusquedaEntry}">
+                            <Label Text="Buscar Plato: " Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Placeholder="Escriba el id" Text="{Binding BusquedaPlato.Value}" Style="{StaticResource BusquedaEntry}">
                                 <Entry.Behaviors>
                                     <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateBusquedaCommand}"/>
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Label Text="{Binding BusquedaCategoria.Errors, Converter={StaticResource FirstMessageError}}" Style="{StaticResource LabelError}"/>
+                        <Label Text="{Binding BusquedaPlato.Errors, Converter={StaticResource FirstMessageError}}" Style="{StaticResource LabelError}"/>
                     </StackLayout>
                     <StackLayout>
-                        <Button Text="Buscar" Command="{Binding SelectCategoriaCommand}"></Button>
+                        <Button Text="Buscar" Command="{Binding SelectPlateCommand}"></Button>
                         <Button Text="Nuevo" Command="{Binding NuevaCategoriaCommand}"></Button>
                     </StackLayout>
                 </StackLayout>
@@ -100,16 +100,18 @@
                 <StackLayout>
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="ID Plato" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding Categoria.IdCategoria}" Style="{StaticResource ItemInfo}" Placeholder="Id Categoría"></Entry>
-                        </StackLayout>
-                        <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Apellido Usuario" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding NombreCategoria.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Categoria">
-
+                            <Label Text="Nombre Plato" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding NombrePlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Plato" IsEnabled="True">
+                                <Entry.Behaviors>
+                                    <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatoNombrePlateCommand}"/>
+                                </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Label Text="{Binding NombreCategoria.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
+                        <Label Text="{Binding NombrePlato.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
+                        <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="Precio" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding ValorPlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="valor plato"></Entry>
+                        </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Button Text="Guardar" Command="{Binding CrearPlatoModelCommand}"></Button>

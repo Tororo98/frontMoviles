@@ -6,18 +6,19 @@ using Newtonsoft.Json;
 
 namespace frontMoviles.Models
 {
+
     public class PlatoModel : BaseModel
     {
         #region properties
-        [JsonProperty("idPlato")]
-        public long IdPlato { get; set; }
-
-        [JsonProperty("valor")]
-        private double valor;
+        [JsonProperty("id")]
+        public int IdPlato { get; set; }
 
         [JsonProperty("nombre")]
 
         private string nombre;
+
+        [JsonProperty("valor")]
+        private float valor;
 
         [JsonProperty("descripcion")]
         private string descripcionPlato;
@@ -28,7 +29,7 @@ namespace frontMoviles.Models
         #endregion Initialize
 
         #region Gets & Sets
-        public double Valor
+        public float Valor
         {
             get { return valor; }
             set { valor = value; OnPropertyChanged(); }
@@ -44,12 +45,8 @@ namespace frontMoviles.Models
             get { return descripcionPlato; }
             set { descripcionPlato = value; OnPropertyChanged(); }
         }
-
-        public class YourUsersData
-        {
-            [JsonProperty("plates")]
-            public List<PlatoModel> Plates { get; set; }
-        }
         #endregion Gets & Sets
     }
+
+
 }
