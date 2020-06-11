@@ -11,18 +11,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Rg.Plugins.Popup/2.0.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "4.5.0.530"
-        },
-        "compile": {
-          "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
-        }
-      },
       "sqlite-net-pcl/1.7.335": {
         "type": "package",
         "dependencies": {
@@ -249,24 +237,6 @@
         "build": {
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
-        }
-      },
-      "frontMoviles/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3",
-          "Rg.Plugins.Popup": "2.0.0.2",
-          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
-          "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.800",
-          "sqlite-net-pcl": "1.7.335"
-        },
-        "compile": {
-          "bin/placeholder/frontMoviles.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/frontMoviles.dll": {}
         }
       }
     },
@@ -280,18 +250,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Rg.Plugins.Popup/2.0.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "4.5.0.530"
-        },
-        "compile": {
-          "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
-        }
-      },
       "sqlite-net-pcl/1.7.335": {
         "type": "package",
         "dependencies": {
@@ -518,24 +476,6 @@
         "build": {
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
-        }
-      },
-      "frontMoviles/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3",
-          "Rg.Plugins.Popup": "2.0.0.2",
-          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
-          "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.800",
-          "sqlite-net-pcl": "1.7.335"
-        },
-        "compile": {
-          "bin/placeholder/frontMoviles.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/frontMoviles.dll": {}
         }
       }
     },
@@ -549,18 +489,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Rg.Plugins.Popup/2.0.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "4.5.0.530"
-        },
-        "compile": {
-          "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
-        }
-      },
       "sqlite-net-pcl/1.7.335": {
         "type": "package",
         "dependencies": {
@@ -787,24 +715,6 @@
         "build": {
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
-        }
-      },
-      "frontMoviles/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3",
-          "Rg.Plugins.Popup": "2.0.0.2",
-          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
-          "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.800",
-          "sqlite-net-pcl": "1.7.335"
-        },
-        "compile": {
-          "bin/placeholder/frontMoviles.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/frontMoviles.dll": {}
         }
       }
     },
@@ -818,18 +728,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Rg.Plugins.Popup/2.0.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "4.5.0.530"
-        },
-        "compile": {
-          "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
-        }
-      },
       "sqlite-net-pcl/1.7.335": {
         "type": "package",
         "dependencies": {
@@ -1056,24 +954,6 @@
         "build": {
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
-        }
-      },
-      "frontMoviles/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3",
-          "Rg.Plugins.Popup": "2.0.0.2",
-          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
-          "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.800",
-          "sqlite-net-pcl": "1.7.335"
-        },
-        "compile": {
-          "bin/placeholder/frontMoviles.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/frontMoviles.dll": {}
         }
       }
     }
@@ -1108,54 +988,6 @@
         "newtonsoft.json.12.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
-      ]
-    },
-    "Rg.Plugins.Popup/2.0.0.2": {
-      "sha512": "UExzgLevcih/oDokftGPKRqaefS65ByAOeaFzfr1Qy2opeyv9+eR0hDWotGb0hPI5JFHD7NJv5aK6NbTM3WuLw==",
-      "type": "package",
-      "path": "rg.plugins.popup/2.0.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "icon.png",
-        "lib/monoandroid10.0/Rg.Plugins.Popup.dll",
-        "lib/monoandroid10.0/Rg.Plugins.Popup.pdb",
-        "lib/monoandroid10.0/Rg.Plugins.Popup.xml",
-        "lib/monoandroid90/Rg.Plugins.Popup.dll",
-        "lib/monoandroid90/Rg.Plugins.Popup.pdb",
-        "lib/monoandroid90/Rg.Plugins.Popup.xml",
-        "lib/net472/Rg.Plugins.Popup.dll",
-        "lib/net472/Rg.Plugins.Popup.pdb",
-        "lib/net472/Rg.Plugins.Popup.xml",
-        "lib/netcoreapp3.1/Rg.Plugins.Popup.dll",
-        "lib/netcoreapp3.1/Rg.Plugins.Popup.pdb",
-        "lib/netcoreapp3.1/Rg.Plugins.Popup.xml",
-        "lib/netstandard2.0/Rg.Plugins.Popup.dll",
-        "lib/netstandard2.0/Rg.Plugins.Popup.pdb",
-        "lib/netstandard2.0/Rg.Plugins.Popup.xml",
-        "lib/tizen40/Rg.Plugins.Popup.dll",
-        "lib/tizen40/Rg.Plugins.Popup.pdb",
-        "lib/tizen40/Rg.Plugins.Popup.xml",
-        "lib/uap10.0.17763/Rg.Plugins.Popup.dll",
-        "lib/uap10.0.17763/Rg.Plugins.Popup.pdb",
-        "lib/uap10.0.17763/Rg.Plugins.Popup.pri",
-        "lib/uap10.0.17763/Rg.Plugins.Popup.xml",
-        "lib/xamarinios10/Rg.Plugins.Popup.dll",
-        "lib/xamarinios10/Rg.Plugins.Popup.pdb",
-        "lib/xamarinios10/Rg.Plugins.Popup.xml",
-        "lib/xamarinmac20/Rg.Plugins.Popup.dll",
-        "lib/xamarinmac20/Rg.Plugins.Popup.pdb",
-        "lib/xamarinmac20/Rg.Plugins.Popup.xml",
-        "lib/xamarintvos10/Rg.Plugins.Popup.dll",
-        "lib/xamarintvos10/Rg.Plugins.Popup.pdb",
-        "lib/xamarintvos10/Rg.Plugins.Popup.xml",
-        "lib/xamarinwatchos10/Rg.Plugins.Popup.dll",
-        "lib/xamarinwatchos10/Rg.Plugins.Popup.pdb",
-        "lib/xamarinwatchos10/Rg.Plugins.Popup.xml",
-        "readme.txt",
-        "rg.plugins.popup.2.0.0.2.nupkg.sha512",
-        "rg.plugins.popup.nuspec"
       ]
     },
     "sqlite-net-pcl/1.7.335": {
@@ -1667,11 +1499,6 @@
         "xamarin.forms.4.6.0.800.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
-    },
-    "frontMoviles/1.0.0": {
-      "type": "project",
-      "path": "../frontMoviles/frontMoviles.csproj",
-      "msbuildProject": "../frontMoviles/frontMoviles.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1680,7 +1507,6 @@
       "Xam.Plugins.Forms.ImageCircle >= 3.0.0.5",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Forms >= 4.6.0.800",
-      "frontMoviles >= 1.0.0",
       "sqlite-net-pcl >= 1.7.335"
     ]
   },
@@ -1715,11 +1541,7 @@
       },
       "frameworks": {
         "xamarinios10": {
-          "projectReferences": {
-            "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj": {
-              "projectPath": "C:\\Users\\sebas\\source\\repos\\frontMoviles\\frontMoviles\\frontMoviles.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },
