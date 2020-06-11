@@ -262,15 +262,15 @@
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <StackLayout Style="{StaticResource RowBusqueda}">
                             <Label Text="Nombre Usuario" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding NombreUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Usuario"></Entry>
+                            <Entry Text="{Binding NombreUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Usuario" HorizontalOptions="FillAndExpand"></Entry>
                         </StackLayout>
                         <StackLayout Style="{StaticResource RowBusqueda}">
                             <Label Text="Apellido Usuario" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding ApellidoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Apellido Usuario"></Entry>
+                            <Entry Text="{Binding ApellidoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Apellido Usuario" HorizontalOptions="FillAndExpand"></Entry>
                         </StackLayout>
                         <StackLayout Style="{StaticResource RowBusqueda}">
                             <Label Text="Correo" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding CorreoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Correo"></Entry>
+                            <Entry Text="{Binding CorreoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Correo" HorizontalOptions="FillAndExpand"></Entry>
                         </StackLayout>
                         <Label Text="{Binding CorreoUsuario.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
                     </StackLayout>
