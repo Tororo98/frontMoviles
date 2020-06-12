@@ -8,6 +8,7 @@ using frontMoviles.Views;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -19,17 +20,22 @@ namespace frontMoviles.ViewModels
     {
         #region Properties
        
-
         public ValidatableObject<string> NombreUsuario { get; set; }  //Campo de Busqueda
         public ValidatableObject<string> ApellidoUsuario { get; set; }
         public ValidatableObject<string> CorreoUsuario { get; set; }
         public ValidatableObject<string> Password { get; set; }
+        public ValidatableObject<string> Key { get; set; }
+
+
 
         private User usuario;
 
         private bool isGuardarEnable;
 
         public MessageViewPop PopUp { get; set; }
+
+        //public List<Rol> RolList { get; set; }
+        
 
         #region Requests
         public ChooseRequest<User> CreateUser { get; set; }
@@ -66,6 +72,24 @@ namespace frontMoviles.ViewModels
             }
         }
 
+        //public class Rol
+        //{
+        //    public int Key { get; set; }
+        //    public string Value { get; set; }
+        //}
+
+        //public List<Rol> GetRols()
+        //{
+        //    var roles = new List<Rol>()
+        //    {
+        //        new Rol(){Key = 1, Value= "Administrador"},
+        //        new Rol(){Key = 2, Value= "Empleado"},
+        //        new Rol(){Key = 3, Value= "Ceo"}
+        //    };
+
+        //    return roles;
+        //}
+
         #endregion Getters & Setters
 
         #region Initialize
@@ -78,7 +102,10 @@ namespace frontMoviles.ViewModels
             InitializeRequest();
             InitializeCommands();
             InitializeFields();
+            //RolList = GetRols().OrderBy(t => t.Key).ToList();
         }
+
+
         #endregion Initialize
 
         public void InitializeRequest()
@@ -101,11 +128,13 @@ namespace frontMoviles.ViewModels
             ApellidoUsuario = new ValidatableObject<string>();
             CorreoUsuario = new ValidatableObject<string>();
             Password = new ValidatableObject<string>();
+            Key = new ValidatableObject<string>();
 
             NombreUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Nombre es Obligatorio" });
             ApellidoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Apellido es Obligatorio" });
             CorreoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Correo es Obligatorio" });
             Password.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Password es Obligatorio" });
+            Key.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Rol es Obligatorio" });
         }
 
         private async Task GuardarUser()
@@ -122,6 +151,20 @@ namespace frontMoviles.ViewModels
         }
         public async Task CrearUsuario()
         {
+            var rol = 0;
+            if (Key.Value == "Administrador")
+            {
+                rol = 1;
+            }
+            else if (Key.Value == "Empleado")
+            {
+                rol = 2;
+            }
+            else if (Key.Value == "Ceo")
+            {
+                rol = 3;
+            }
+            Console.WriteLine(rol);
             try
             {
                 User usuario = new User()
@@ -130,8 +173,8 @@ namespace frontMoviles.ViewModels
                     Apellido = ApellidoUsuario.Value,
                     Correo = CorreoUsuario.Value,
                     Password = "123445",
-                    //Password = Password.Value,
-                    IdRol = 1,
+                    //Password = Password.Value,                
+                    IdRol = rol,
 
 
                     //Nombre = "PruebaNombre",

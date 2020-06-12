@@ -16,6 +16,7 @@ D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\bin\Debug\netstandard2.0\fr
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\XamlC.stamp
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\PlatoView.xaml.g.cs
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\FacturaView.xaml.g.cs
+C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.csprojAssemblyReference.cache
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\bin\Debug\netstandard2.0\frontMoviles.deps.json
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\bin\Debug\netstandard2.0\frontMoviles.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\bin\Debug\netstandard2.0\ref\frontMoviles.dll
@@ -33,4 +34,3 @@ C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\X
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\ref\frontMoviles.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.pdb
-C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.csprojAssemblyReference.cache

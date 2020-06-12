@@ -257,7 +257,7 @@ namespace frontMoviles.ViewModels
                     Descripcion.Value = Plato.DescripcionPlato;
                     isFacturarEnable = true;
                     ListaPlatos.Add(Plato);
-                    ((Command)CrearPlatoModelCommand).ChangeCanExecute();
+                    ((Command)FacturarCommand).ChangeCanExecute();
                     //((Command)EliminarPlatoModelCommand).ChangeCanExecute();
                 }
                 else
