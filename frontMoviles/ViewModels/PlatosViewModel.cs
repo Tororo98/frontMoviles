@@ -274,13 +274,13 @@ namespace frontMoviles.ViewModels
         }
         private void ValidateBusquedaForm()
         {
-            IsBuscarEnable = NombrePlato.Validate();
+            IsBuscarEnable = BusquedaPlato.Validate();
             ((Command)SelectPlateCommand).ChangeCanExecute();
         }
 
         private void ValidateNombrePlatoForm()
         {
-            IsGuardarEnable = BusquedaPlato.Validate();
+            IsGuardarEnable = NombrePlato.Validate();
             ((Command)CrearPlatoModelCommand).ChangeCanExecute();
         }
 
