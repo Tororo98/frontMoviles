@@ -283,10 +283,22 @@
                             <Entry Text="{Binding PasswordUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Ingrese su contraseña" HorizontalOptions="FillAndExpand" IsPassword="True"></Entry>
                         </StackLayout>
                         <Label Text="{Binding PasswordUsuario.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"  />
+                        <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="IdRol" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Picker Title="Seleccionar Rol" SelectedItem="{Binding Key.Value}">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Administrador</x:String>
+                                        <x:String>Empleado</x:String>
+                                        <x:String>Ceo</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <Button Text="Guardar" Command="{Binding CrearUserCommand}" HorizontalOptions="Center"></Button>
-                        <Button Text="Atrás" Command="{Binding VolverCommand}"></Button>
+                        <Button Text="Guardar" Command="{Binding CrearUserCommand}" HorizontalOptions="Center" BackgroundColor="#AED6F1"></Button>
+                        <Button Text="Atrás" Command="{Binding VolverCommand}" ></Button>
                     </StackLayout>
                 </StackLayout>
             </Frame>

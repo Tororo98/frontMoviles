@@ -30,10 +30,12 @@
             <Style TargetType="Entry" x:Key="BusquedaEntry">
                 <Setter Property="HorizontalOptions" Value="EndAndExpand"></Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                
             </Style>
 
             <Style TargetType="Label" x:Key="BusquedaLabel">
                 <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
             </Style>
 
             <Style TargetType="FlexLayout" x:Key="RowInfo">
@@ -81,25 +83,22 @@
                 <StackLayout>
                     <StackLayout  HorizontalOptions="FillAndExpand">
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Buscar Plato: " Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Placeholder="Escriba el id" Text="{Binding BusquedaPlato.Value}" Style="{StaticResource BusquedaEntry}" HorizontalOptions="FillAndExpand">
+                            <Label Text="ID Plato:" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding BusquedaPlato.Value}" Style="{StaticResource BusquedaEntry }" HorizontalOptions="FillAndExpand" >
                                 <Entry.Behaviors>
                                     <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateBusquedaCommand}"/>
                                 </Entry.Behaviors>
                             </Entry>
+                            <Button Text="Agregar" Command="{Binding SelectPlateCommand}"></Button>
                         </StackLayout>
                         <Label Text="{Binding BusquedaPlato.Errors, Converter={StaticResource FirstMessageError}}" Style="{StaticResource LabelError}"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <Button Text="Buscar" Command="{Binding SelectPlateCommand}"></Button>
-                        <Button Text="Facturar" Command="{Binding FacturarCommand}"></Button>
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
-            <Frame>
-                <StackLayout>
-                    <StackLayout HorizontalOptions="FillAndExpand">
-                        <StackLayout Style="{StaticResource RowBusqueda}">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Button Text="Listar" Command="{Binding ListaPlatosCommand}"></Button>
+                            <Button Text="Facturar" Command="{Binding FacturarCommand}"></Button>
+                            <Button Text="Info" Command="{Binding InfoCommand}"></Button>
+                        </StackLayout>
+                  
+                        <!--<StackLayout Style="{StaticResource RowBusqueda}">
                             <Label Text="Nombre Plato" Style="{StaticResource BusquedaLabel}"></Label>
                             <Entry Text="{Binding NombrePlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Plato" IsEnabled="True" HorizontalOptions="FillAndExpand">
                                 <Entry.Behaviors>
@@ -112,32 +111,49 @@
                             <Label Text="Precio" Style="{StaticResource BusquedaLabel}"></Label>
                             <Entry Text="{Binding ValorPlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="valor plato"></Entry>
                         </StackLayout>
+                        <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="Descripcion" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding Descripcion.Value}" Style="{StaticResource ItemInfo}" Placeholder="Descripcion del plato" HorizontalOptions="FillAndExpand"></Entry>
+                        </StackLayout>-->
+                        
+                    </StackLayout>
+                    
+                </StackLayout>
+            </Frame>
+            <!--<Frame>
+                --><!--<StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        
+                        
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Button Text="Guardar" Command="{Binding CrearPlatoModelCommand}"></Button>
                         <Button Text="Eliminar" Command="{Binding ListaPlatosCommand}"></Button>
                     </StackLayout>
-                </StackLayout>
-            </Frame>
+                </StackLayout>--><!--
+            </Frame>-->
             <StackLayout>
                 <ListView ItemsSource="{Binding Platos}" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Frame>
-                                    <StackLayout>
-                                        <Label Text="{Binding Nombre}" TextColor="Accent"></Label>
-                                        <Label Text="{Binding Valor}"></Label>
+                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <Label Text="Plato: " TextColor="Accent" FontSize="18"></Label>
+                                            <Label Text="{Binding Nombre}" FontSize="18"></Label>
+                                            <Label Text="Costo: " TextColor="Accent" FontSize="18"></Label>
+                                            <Label Text="{Binding Valor}" FontSize="18"></Label>
+                                        </StackLayout>
+                                        <Label Text="Descripción: " TextColor="Accent" FontSize="18"></Label>
+                                        <Label Text="{Binding DescripcionPlato}" FontSize="18"></Label>
                                     </StackLayout>
                                 </Frame>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </StackLayout>
-            <StackLayout>
-                <Button Text="Mostrar Lista" Command="{Binding ListaPlatosCommand}"></Button>
-            </StackLayout>
-        </StackLayout>        
+            </StackLayout>            
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

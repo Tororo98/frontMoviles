@@ -26,8 +26,9 @@ namespace frontMoviles.ViewModels
         public ValidatableObject<string> BusquedaPlato { get; set; }  //Campo de Busqueda
         public ValidatableObject<string> NombrePlato { get; set; }
 
-        public ValidatableObject<float> ValorPlato { get; set; }
+        public ValidatableObject<long> ValorPlato { get; set; }
 
+        public ValidatableObject<string> Descripcion { get; set; }
         private List<PlatoModel> listaPlatos;
 
         private PlatoModel plato;
@@ -35,7 +36,9 @@ namespace frontMoviles.ViewModels
         private bool isFacturarEnable;
         private bool isBuscarEnable;
 
-        private ObservableCollection<PlatoModel> platos;
+        private ObservableCollection<PlatoModel> platos; //Platos lista pedidos
+        private ObservableCollection<PlatoModel> todoPlatos; //Platos en bd
+        private ObservableCollection<PlatoModel> platosFacturar;
 
         public MessageViewPop PopUp { get; set; }
 
@@ -46,12 +49,16 @@ namespace frontMoviles.ViewModels
 
         public ChooseRequest<BaseModel> GetPlatos { get; set; }
 
+        public ChooseRequest<BaseModel> ElPlatos { get; set; }
+
         #endregion Requests
 
         #region Commands
         public ICommand CrearPlatoModelCommand { get; set; }
 
         public ICommand FacturarCommand { get; set; }
+
+        //public ICommand EliminarPlatoModelCommand { get; set; }
 
         public ICommand ListaPlatosCommand { get; set; }
 
@@ -60,6 +67,9 @@ namespace frontMoviles.ViewModels
         public ICommand ValidateBusquedaCommand { get; set; }
         public ICommand ValidateNombrePlatoCommand { get; set; }
 
+        public ICommand ValidateDescripcionCommand { get; set; }
+
+        public ICommand InfoCommand { get; set; }
         #endregion Commands
 
         #endregion Properties
@@ -115,6 +125,26 @@ namespace frontMoviles.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public ObservableCollection<PlatoModel> TodoPlatos
+        {
+            get { return todoPlatos; }
+            set
+            {
+                todoPlatos = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<PlatoModel> PlatosFacturar
+        {
+            get { return platosFacturar; }
+            set
+            {
+                platosFacturar = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion Getters & Setters
 
         #region Initialize
@@ -126,6 +156,8 @@ namespace frontMoviles.ViewModels
             isFacturarEnable = false;
             IsBuscarEnable = true;
             Platos = new ObservableCollection<PlatoModel>();
+            TodoPlatos = new ObservableCollection<PlatoModel>();
+            PlatosFacturar = new ObservableCollection<PlatoModel>();
             ListaPlatos = new List<PlatoModel>();
             InitializeRequest();
             InitializeCommands();
@@ -152,21 +184,26 @@ namespace frontMoviles.ViewModels
         public void InitializeCommands()
         {
             CrearPlatoModelCommand = new Command(async () => await GuardarPlato(), () => true);
+            //ElminarPlatoModelCommand = new Command(async () => await GuardarPlato(), () => true);
             SelectPlateCommand = new Command(async () => await SelecccionarPlatoAComprar(), () => IsBuscarEnable);
             ListaPlatosCommand = new Command(async () => await ListarPlatos(), () => true);
             ValidateBusquedaCommand = new Command(() => ValidateBusquedaForm(), () => true);
             ValidateNombrePlatoCommand = new Command(() => ValidateNombrePlatoForm(), () => true);
+            ValidateDescripcionCommand = new Command(() => ValidateDescripcionForm(), () => true);
             FacturarCommand = new Command(async () => await NavegarFactura(), () => isFacturarEnable);
+            InfoCommand = new Command(async () => await Informar(), () => true);
         }
 
         public void InitializeFields()
         {
             BusquedaPlato = new ValidatableObject<string>();
             NombrePlato = new ValidatableObject<string>();
-            ValorPlato = new ValidatableObject<float>();
+            ValorPlato = new ValidatableObject<long>();
+            Descripcion = new ValidatableObject<string>();
 
             BusquedaPlato.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Id es Obligatorio" });
             NombrePlato.Validations.Add(new RequiredRule<string> { ValidationMessage = "El nombre de la categoria es Obligatorio" });
+            Descripcion.Validations.Add(new RequiredRule<string> { ValidationMessage = "La Descripcion es Obligatoria" });
         }
 
         private async Task GuardarPlato()
@@ -182,11 +219,12 @@ namespace frontMoviles.ViewModels
             {
                 PlatoModel plato = new PlatoModel()
                 {
-                    //Nombre = NombreUsuario.Value,
-                    //Apellido = ApellidoUsuario.Value
-                    Nombre = "ArrozConPollo",
-                    Valor = 8000,
-                    DescripcionPlato = "ArrozConPollo"
+                    Nombre = NombrePlato.Value,
+                    Valor = ValorPlato.Value,
+                    DescripcionPlato = Descripcion.Value
+                    //Nombre = "ArrozConPollo",
+                    //Valor = 8000,
+                    //DescripcionPlato = "ArrozConPollo"
 
                 };
                 APIResponse response = await CreatePlate.EjecutarEstrategia(plato);
@@ -207,14 +245,14 @@ namespace frontMoviles.ViewModels
             }
         }
 
-        public async Task ListarPlatos()
-        {
+        public async Task Informar() {
             var navigationStack = App.Current.MainPage.Navigation.NavigationStack;
             APIResponse response = await GetPlatos.EjecutarEstrategia(null);
             if (response.IsSuccess)
             {
                 List<PlatoModel> listaPlatos = JsonConvert.DeserializeObject<List<PlatoModel>>(response.Response);
-                Platos = new ObservableCollection<PlatoModel>(listaPlatos);
+                TodoPlatos = new ObservableCollection<PlatoModel>(listaPlatos);
+                await NavigationService.PushPage(new InfoView(TodoPlatos), TodoPlatos);
             }
             else
             {
@@ -222,27 +260,34 @@ namespace frontMoviles.ViewModels
                 await PopupNavigation.Instance.PushAsync(PopUp);
             }
         }
+        public async Task ListarPlatos()
+        {
+            Platos = new ObservableCollection<PlatoModel>(ListaPlatos);
+        }
 
         public async Task NavegarFactura()
         {
-            await NavigationService.PushPage(new FacturaView(ListaPlatos), ListaPlatos);
+            PlatosFacturar = new ObservableCollection<PlatoModel>(ListaPlatos);
+            await NavigationService.PushPage(new FacturaView(PlatosFacturar, ListaPlatos), PlatosFacturar);
         }
         public async Task SelecccionarPlatoAComprar()
         {
             try
             {
                 ParametersRequest parametros = new ParametersRequest();
-                var idPlato = "1";
-                parametros.Parameters.Add(idPlato/*BusquedaCategoria.Value*/);
+                //var idPlato = "1";
+                parametros.Parameters.Add(BusquedaPlato.Value);
                 APIResponse response = await GetPlate.EjecutarEstrategia(null, parametros);
-                Console.WriteLine(response.Response);
+                //Console.WriteLine(response.Response);
                 if (response.IsSuccess)
                 {
                     Plato = JsonConvert.DeserializeObject<PlatoModel>(response.Response);
                     NombrePlato.Value = Plato.Nombre;
                     ValorPlato.Value = Plato.Valor;
+                    Descripcion.Value = Plato.DescripcionPlato;
                     isFacturarEnable = true;
-                    ListaPlatos.Add(Plato);                    
+                    ListaPlatos.Add(Plato);
+                    ((Command)FacturarCommand).ChangeCanExecute();
                 }
                 else
                 {
@@ -258,13 +303,19 @@ namespace frontMoviles.ViewModels
         }
         private void ValidateBusquedaForm()
         {
-            IsBuscarEnable = NombrePlato.Validate();
+            IsBuscarEnable = BusquedaPlato.Validate();
             ((Command)SelectPlateCommand).ChangeCanExecute();
         }
 
         private void ValidateNombrePlatoForm()
         {
-            IsGuardarEnable = BusquedaPlato.Validate();
+            IsGuardarEnable = NombrePlato.Validate();
+            ((Command)CrearPlatoModelCommand).ChangeCanExecute();
+        }
+
+        private void ValidateDescripcionForm()
+        {
+            IsGuardarEnable = Descripcion.Validate();
             ((Command)CrearPlatoModelCommand).ChangeCanExecute();
         }
     }

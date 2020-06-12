@@ -18,7 +18,7 @@ namespace frontMoviles.Models
         private string nombre;
 
         [JsonProperty("valor")]
-        private float valor;
+        private long valor;
 
         [JsonProperty("descripcion")]
         private string descripcionPlato;
@@ -29,7 +29,7 @@ namespace frontMoviles.Models
         #endregion Initialize
 
         #region Gets & Sets
-        public float Valor
+        public long Valor
         {
             get { return valor; }
             set { valor = value; OnPropertyChanged(); }

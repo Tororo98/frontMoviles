@@ -2,6 +2,7 @@
 using frontMoviles.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,10 @@ namespace frontMoviles.Views
     public partial class FacturaView : ContentPage
     {
         
-        public FacturaView(List<PlatoModel> ListPlates)
+        public FacturaView(ObservableCollection<PlatoModel> listaPlatos, List<PlatoModel> enlistamiento)
         {
             InitializeComponent();
-            BindingContext = new FacturaViewModel(ListPlates); ;
+            BindingContext = new FacturaViewModel(listaPlatos, enlistamiento); ;
         }
     }
 }

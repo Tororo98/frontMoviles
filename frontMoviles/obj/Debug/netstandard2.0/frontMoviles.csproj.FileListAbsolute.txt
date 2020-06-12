@@ -34,3 +34,4 @@ C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\f
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\ref\frontMoviles.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.pdb
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.csprojAssemblyReference.cache
+D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\InfoView.xaml.g.cs

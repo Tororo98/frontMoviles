@@ -4,46 +4,69 @@ using System.Text;
 
 namespace frontMoviles.Models
 {
-    public class FacturaModel : NotificationObject
+    public class FacturaModel : BaseModel
     {
         #region properties
         public int IdFactura { get; set; }
 
-        private User empleado;
+        //private User empleado;
 
-        public string Cliente { get; set; }
+        private string cliente;
 
-        public string IdCliente { get; set; }
+        private string cedula { get; set; }
 
-        public DateTime FechaFactura { get; set; }
+        private DateTime fechaFactura;
 
-        public Double Descuento { get; set; }
+        private float descuento;
 
-        private Double valorTotal;
+        private float valorTotal;
         #endregion properties
 
         #region Initialize 
-        public FacturaModel(User empleado)
+        public FacturaModel(/*User empleado*/)
         {
-            this.empleado = empleado;
+            //this.empleado = empleado;
         }
         #endregion Initialize
 
         #region gets & sets
-        public Double ValorTotal
+
+        public string Cliente
         {
-            get { return valorTotal; }
-            set { valorTotal = value; OnPropertyChanged();}
+            get { return cliente; }
+            set { cliente = value; OnPropertyChanged(); }
         }
 
+        public string Cedula
+        {
+            get { return cedula; }
+            set { cedula = value; OnPropertyChanged(); }
+        }
+
+        public DateTime FechaFactura
+        {
+            get { return fechaFactura; }
+            set { fechaFactura = value; OnPropertyChanged(); }
+        }
+
+        public float ValorTotal
+        {
+            get { return valorTotal; }
+            set { valorTotal = value; OnPropertyChanged(); }
+        }
+        public float Descuento
+        {
+            get { return descuento; }
+            set { descuento = value; OnPropertyChanged();}
+        }
+        /*
         public User Empleado
         {
             get { return empleado; }
             set { empleado = value; }
         }
+        */
         #endregion gets & sets
-
-
 
     }
 }

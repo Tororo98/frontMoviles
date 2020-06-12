@@ -502,7 +502,6 @@ D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles.Android\obj\Debug\90\stamp\
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-D:\Universidad\8vo\Moviles\frontMoviles\frontMoviles.Android\obj\Debug\90\stamp\SetupDependenciesForDesigner.stamp
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\bin\Debug\frontMoviles.Android.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\bin\Debug\frontMoviles.Android.pdb
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles.Android\bin\Debug\com.companyname.frontmoviles.apk

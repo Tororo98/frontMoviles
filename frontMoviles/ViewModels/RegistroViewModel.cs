@@ -25,6 +25,8 @@ namespace frontMoviles.ViewModels
         public ValidatableObject<string> CorreoUsuario { get; set; }
         public ValidatableObject<string> PasswordUsuario { get; set; }
 
+        public ValidatableObject<string> Key { get; set; }
+
         private User usuario;
 
         private bool isGuardarEnable;
@@ -73,7 +75,7 @@ namespace frontMoviles.ViewModels
         public RegistroViewModel()
         {
             PopUp = new MessageViewPop();
-            Usuario = new User();
+            Usuario = new User();            
             IsGuardarEnable = true;
             InitializeRequest();
             InitializeCommands();
@@ -101,11 +103,13 @@ namespace frontMoviles.ViewModels
             ApellidoUsuario = new ValidatableObject<string>();
             CorreoUsuario = new ValidatableObject<string>();
             PasswordUsuario = new ValidatableObject<string>();
+            Key = new ValidatableObject<string>();
 
             NombreUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Nombre es Obligatorio" });
             ApellidoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Apellido es Obligatorio" });
             CorreoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Correo es Obligatorio" });
             PasswordUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Password es Obligatorio" });
+            Key.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Rol es Obligatorio" });
         }
 
         private async Task GuardarUser()
@@ -124,13 +128,28 @@ namespace frontMoviles.ViewModels
         {
             try
             {
+                var rol = 0;
+                if (Key.Value == "Administrador")
+                {
+                    rol = 1;
+                }
+                else if (Key.Value == "Empleado")
+                {
+                    rol = 2;
+                }
+                else if (Key.Value == "Ceo")
+                {
+                    rol = 3;
+                }
+                Console.WriteLine(rol);
+
                 User usuario = new User()
                 {
                     Nombre = NombreUsuario.Value,
                     Apellido = ApellidoUsuario.Value,
                     Correo = CorreoUsuario.Value,
                     Password = PasswordUsuario.Value,
-                    IdRol = 1,
+                    IdRol = rol,
                 };
 
                 APIResponse response = await CreateUser.EjecutarEstrategia(usuario);

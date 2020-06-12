@@ -34,6 +34,7 @@
 
             <Style TargetType="Label" x:Key="BusquedaLabel">
                 <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
             </Style>
 
             <Style TargetType="FlexLayout" x:Key="RowInfo">
@@ -74,28 +75,101 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Style="{StaticResource WrapperTitulo}">
-                <Label Text="Usuarios" Style="{StaticResource LabelStyleOne}"></Label>
+                <Label Text="FACTURACIÓN" Style="{StaticResource LabelStyleOne}"></Label>
                 <BoxView Style="{StaticResource BoxStyleOne}"></BoxView>
             </StackLayout>
             <Frame>
                 <StackLayout>
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Nombre Plato" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding NombrePlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Plato" IsEnabled="True">
-                                <Entry.Behaviors>
-                                    <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatoNombrePlateCommand}"/>
-                                </Entry.Behaviors>
-                            </Entry>
+                            <Label Text="Cliente: " Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding NombreCliente.Value}" Style="{StaticResource ItemInfo}" Placeholder="Ingrese el nombre del cliente" HorizontalOptions="FillAndExpand"></Entry>
                         </StackLayout>
-                        <Label Text="{Binding NombrePlato.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Precio" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding ValorPlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="valor plato"></Entry>
+                            <Label Text="Cedula: " Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding Cedula.Value}" Style="{StaticResource ItemInfo}" Placeholder="Ingrese la cedula del cliente" HorizontalOptions="FillAndExpand"></Entry>
                         </StackLayout>
+                        <StackLayout Style="{StaticResource RowBusqueda}" HorizontalOptions="FillAndExpand">
+                            <Label Text="Descuento: " Style="{StaticResource BusquedaLabel}" ></Label>
+                            <Entry Text="{Binding Descuento.Value}" Style="{StaticResource ItemInfo}" HorizontalOptions="FillAndExpand"></Entry>                        
+                        </StackLayout>
+                        <Label Text="{Binding Descuento.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
+                        <Label Text="{Binding Valor.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"  />
                     </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Button Text="Generar" Command="{Binding FacturarCommand}" HorizontalOptions="Center" BackgroundColor="#AED6F1"></Button>
+                        <Button Text="Atrás" Command="{Binding AtrasCommand}" ></Button>
+                    </StackLayout>                  
                 </StackLayout>
             </Frame>
+            <StackLayout>
+                <ListView ItemsSource="{Binding Factura}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame>
+                                    <StackLayout  HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding FechaFactura}" FontSize="18"></Label>
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Cliente: " FontSize="18"></Label>
+                                                <Label Text="{Binding Cliente}" FontSize="18"></Label>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Cedula: " FontSize="18"></Label>
+                                                <Label Text="{Binding Cedula}" FontSize="18"></Label>
+                                            </StackLayout>                                            
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView ItemsSource="{Binding Lista_plates}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame>
+                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Plato: " FontSize="18"></Label>
+                                            <Label Text="{Binding Nombre}" FontSize="18"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Costo: " FontSize="18"></Label>
+                                            <Label Text="{Binding Valor}" FontSize="18"></Label>
+                                        </StackLayout>
+                                        
+                                        
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView ItemsSource="{Binding Factura}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame>
+                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Descuento: " FontSize="18"></Label>
+                                            <Label Text="{Binding Descuento}" FontSize="18"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Valor a Pagar: " FontSize="18"></Label>
+                                            <Label Text="{Binding ValorTotal}" FontSize="18"></Label>
+                                        </StackLayout>
+                                        
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

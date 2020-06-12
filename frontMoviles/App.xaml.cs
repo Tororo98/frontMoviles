@@ -29,7 +29,7 @@ namespace frontMoviles
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new RegistroView());
+            MainPage = new NavigationPage(new PlatoView());
         }
 
         protected override void OnStart()

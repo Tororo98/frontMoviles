@@ -17,6 +17,7 @@
             <Style x:Key="Container" TargetType="FlexLayout" >
                 <Setter Property="AlignItems" Value="Center"></Setter>
                 <Setter Property="JustifyContent" Value="Center"></Setter>
+                
             </Style>
 
             <Style x:Key="Modal" TargetType="Frame">
@@ -25,18 +26,19 @@
                 <Setter Property="WidthRequest" Value="250"></Setter>
                 <Setter Property="Padding" Value="30"></Setter>
                 <Setter Property="CornerRadius" Value="20"></Setter>
+                
             </Style>
 
             <Style x:Key="Message" TargetType="Label">
                 <Setter Property="FontSize" Value="20"></Setter>
-                <Setter Property="TextColor" Value="#3C3C3B"></Setter>
+                <Setter Property="TextColor" Value="#E74C3C "></Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
                 <Setter Property="Margin" Value="0,0,0,20"></Setter>
             </Style>
 
             <Style TargetType="Button">
                 <Setter Property="HeightRequest" Value="50"></Setter>
-                <Setter Property="BackgroundColor" Value="#d7b045"></Setter>
+                <Setter Property="BackgroundColor" Value="#F4D03F"></Setter>
                 <Setter Property="Margin" Value="40,0,40,0"></Setter>
                 <Setter Property="CornerRadius" Value="10"></Setter>
             </Style>
