@@ -34,3 +34,4 @@ C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\X
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\ref\frontMoviles.dll
 C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\frontMoviles.pdb
+C:\Users\sebas\source\repos\frontMoviles\frontMoviles\obj\Debug\netstandard2.0\Views\MenuDetail.xaml.g.cs

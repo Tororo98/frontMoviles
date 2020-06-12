@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="frontMoviles.Menu"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             Title="NuestroMenu!">
 
     <ContentPage.Resources>
         <Style TargetType="StackLayout" x:Key="WrapperTitulo">
@@ -62,28 +63,49 @@
         </Style>
 
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
-        <StackLayout BackgroundColor="White">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                <Image Source="resvit" Style="{StaticResource ImageStyleOne}"></Image>
-                <Button Text="Salir" Style="{StaticResource ButtonStyleOne}" Clicked="Button_Clicked"></Button>
-            </StackLayout>
-            <StackLayout Style="{StaticResource WrapperTitulo}">
-                <!-- Place new controls here -->
-                <Label Text="Nuestro Menu!" Style="{StaticResource LabelStyleOne}"></Label>
-                <!--<Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}"></Button>-->
-                <BoxView Style="{StaticResource BoxStyleOne}"></BoxView> <!--Line under the title-->
-            </StackLayout>
-            <Frame Style="{StaticResource FrameStyleOne}">
-                <StackLayout Orientation="Horizontal">
-                    <Image Source="curry" Style="{StaticResource ImageStyleTwo}"></Image>
-                    <Label Text="Pollo al curry: Plato tipico peruano con pedazos de la mas fina pechuga salteados con una salsa" Style="{StaticResource LabelStyleTwo}"></Label>
+        <ListView ItemsSource="{Binding FoodList}" HasUnevenRows="True" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <!--<RowDefinition Height="*/"></RowDefinition>-->
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <!--<ColumnDefinition Width="*/"></ColumnDefinition>-->
+                            </Grid.ColumnDefinitions>
+                            <Image Source="curry" Style="{StaticResource ImageStyleTwo}"></Image>
+                            <Label Grid.Column="1" Text="{Binding Nombre}" VerticalOptions="End" Style="{StaticResource LabelStyleOne}"/>
+                            <Label Grid.Column="1" Grid.Row="1" VerticalOptions="Start" Text="{Binding Descripcion}"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<StackLayout BackgroundColor="White">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Image Source="resvit" Style="{StaticResource ImageStyleOne}"></Image>
+                    <Button Text="Salir" Style="{StaticResource ButtonStyleOne}" Clicked="Button_Clicked"></Button>
                 </StackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SeleccionarPlatoCommand}"  NumberOfTapsRequired="1"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-        </StackLayout>
+                <StackLayout Style="{StaticResource WrapperTitulo}">
+                    --><!-- Place new controls here --><!--
+                    <Label Text="Nuestro Menu!" Style="{StaticResource LabelStyleOne}"></Label>
+                    --><!--<Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}"></Button>--><!--
+                    <BoxView Style="{StaticResource BoxStyleOne}"></BoxView> --><!--Line under the title--><!--
+                </StackLayout>
+                <Frame Style="{StaticResource FrameStyleOne}">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="curry" Style="{StaticResource ImageStyleTwo}"></Image>
+                        <Label Text="Pollo al curry: Plato tipico peruano con pedazos de la mas fina pechuga salteados con una salsa" Style="{StaticResource LabelStyleTwo}"></Label>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SeleccionarPlatoCommand}"  NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>-->
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
