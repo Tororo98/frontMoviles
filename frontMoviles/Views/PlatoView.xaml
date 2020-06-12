@@ -109,6 +109,10 @@
                         </StackLayout>
                         <Label Text="{Binding NombrePlato.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
                         <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="Descripcion" Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding Descripcion.Value}" Style="{StaticResource ItemInfo}" Placeholder="Descripcion del plato" HorizontalOptions="FillAndExpand"></Entry>
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource RowBusqueda}">
                             <Label Text="Precio" Style="{StaticResource BusquedaLabel}"></Label>
                             <Entry Text="{Binding ValorPlato.Value}" Style="{StaticResource ItemInfo}" Placeholder="valor plato"></Entry>
                         </StackLayout>
