@@ -96,6 +96,7 @@
                             <Button Text="Listar" Command="{Binding ListaPlatosCommand}"></Button>
                             <Button Text="Facturar" Command="{Binding FacturarCommand}"></Button>
                             <Button Text="Info" Command="{Binding InfoCommand}"></Button>
+                            <Button Text="Crear" Command="{Binding CrearPlatoModelCommand}"></Button>
                         </StackLayout>
                   
                         <!--<StackLayout Style="{StaticResource RowBusqueda}">
