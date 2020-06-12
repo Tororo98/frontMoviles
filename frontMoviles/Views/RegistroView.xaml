@@ -214,6 +214,8 @@
 
             <Style TargetType="Label" x:Key="BusquedaLabel">
                 <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
 
             <Style TargetType="FlexLayout" x:Key="RowInfo">
@@ -226,6 +228,7 @@
             <Style TargetType="Entry" x:Key="ItemInfo">
                 <Setter Property="HorizontalOptions" Value="EndAndExpand"></Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
             </Style>
 
             <Style TargetType="StackLayout" x:Key="WrapperTitulo">
@@ -236,6 +239,8 @@
 
             <Style TargetType="Label" x:Key="LabelStyleOne">
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="24"></Setter>
+                <Setter Property="TextColor" Value="Blue"></Setter>
             </Style>
 
             <Style TargetType="Label" x:Key="LabelError">
@@ -254,30 +259,35 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Style="{StaticResource WrapperTitulo}">
-                <Label Text="Usuarios" Style="{StaticResource LabelStyleOne}"></Label>
+                <Label Text="Registro de Usuarios" Style="{StaticResource LabelStyleOne}"></Label>
                 <BoxView Style="{StaticResource BoxStyleOne}"></BoxView>
             </StackLayout>
             <Frame>
                 <StackLayout>
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Nombre Usuario" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding NombreUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Nombre Usuario" HorizontalOptions="FillAndExpand"></Entry>
+                            <Label Text="Nombres: " Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding NombreUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Ingrese sus nombres" HorizontalOptions="FillAndExpand"></Entry>
                         </StackLayout>
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Apellido Usuario" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding ApellidoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Apellido Usuario" HorizontalOptions="FillAndExpand"></Entry>
+                            <Label Text="Apellidos: " Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding ApellidoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Ingrese sus apellidos" HorizontalOptions="FillAndExpand"></Entry>
                         </StackLayout>
                         <StackLayout Style="{StaticResource RowBusqueda}">
-                            <Label Text="Correo" Style="{StaticResource BusquedaLabel}"></Label>
-                            <Entry Text="{Binding CorreoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Correo" HorizontalOptions="FillAndExpand"></Entry>
+                            <Label Text="Correo: " Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding CorreoUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Ingrese su contraseña" HorizontalOptions="FillAndExpand"></Entry>
                         </StackLayout>
                         <Label Text="{Binding CorreoUsuario.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"/>
+                        <StackLayout Style="{StaticResource RowBusqueda}">
+                            <Label Text="Contraseña: " Style="{StaticResource BusquedaLabel}"></Label>
+                            <Entry Text="{Binding PasswordUsuario.Value}" Style="{StaticResource ItemInfo}" Placeholder="Ingrese su contraseña" HorizontalOptions="FillAndExpand" IsPassword="True"></Entry>
+                        </StackLayout>
+                        <Label Text="{Binding PasswordUsuario.Errors, Converter={StaticResource FirstMessageError}}"  Style="{StaticResource LabelError}"  />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Button Text="Guardar" Command="{Binding CrearUserCommand}" HorizontalOptions="Center"></Button>
                         <Button Text="Atrás" Command="{Binding VolverCommand}"></Button>
-                    </StackLayout> 
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </StackLayout>

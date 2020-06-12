@@ -18,12 +18,12 @@ namespace frontMoviles.ViewModels
     public class RegistroViewModel : ViewModelBase
     {
         #region Properties
-       
+
 
         public ValidatableObject<string> NombreUsuario { get; set; }  //Campo de Busqueda
         public ValidatableObject<string> ApellidoUsuario { get; set; }
         public ValidatableObject<string> CorreoUsuario { get; set; }
-        public ValidatableObject<string> Password { get; set; }
+        public ValidatableObject<string> PasswordUsuario { get; set; }
 
         private User usuario;
 
@@ -100,12 +100,12 @@ namespace frontMoviles.ViewModels
             NombreUsuario = new ValidatableObject<string>();
             ApellidoUsuario = new ValidatableObject<string>();
             CorreoUsuario = new ValidatableObject<string>();
-            Password = new ValidatableObject<string>();
+            PasswordUsuario = new ValidatableObject<string>();
 
             NombreUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Nombre es Obligatorio" });
             ApellidoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Apellido es Obligatorio" });
             CorreoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Correo es Obligatorio" });
-            Password.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Password es Obligatorio" });
+            PasswordUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El Password es Obligatorio" });
         }
 
         private async Task GuardarUser()
@@ -113,12 +113,12 @@ namespace frontMoviles.ViewModels
             await CrearUsuario();
             IsGuardarEnable = false;
             ((Command)CrearUserCommand).ChangeCanExecute();
-  
+
         }
 
         public async Task Volver()
         {
-            await NavigationService.PopPage();
+            await NavigationService.PushPage(new MainPage());
         }
         public async Task CrearUsuario()
         {
@@ -129,16 +129,8 @@ namespace frontMoviles.ViewModels
                     Nombre = NombreUsuario.Value,
                     Apellido = ApellidoUsuario.Value,
                     Correo = CorreoUsuario.Value,
-                    Password = "123445",
-                    //Password = Password.Value,
+                    Password = PasswordUsuario.Value,
                     IdRol = 1,
-
-
-                    //Nombre = "PruebaNombre",
-                    //Apellido = "Last",
-                    //Correo = "Prueba@gmail.com",
-                    //Password = "123445",
-                    //IdRol = 1
                 };
 
                 APIResponse response = await CreateUser.EjecutarEstrategia(usuario);
@@ -146,11 +138,13 @@ namespace frontMoviles.ViewModels
                 {
                     ((MessageViewModel)PopUp.BindingContext).Message = "Usuario creado exitosamente";
                     await PopupNavigation.Instance.PushAsync(PopUp);
+                    await Volver();
                 }
                 else
                 {
                     ((MessageViewModel)PopUp.BindingContext).Message = "Error al crear el Usuario";
                     await PopupNavigation.Instance.PushAsync(PopUp);
+                    await Volver();
                 }
             }
             catch (Exception e)
@@ -158,6 +152,6 @@ namespace frontMoviles.ViewModels
 
             }
         }
-        
+
     }
 }

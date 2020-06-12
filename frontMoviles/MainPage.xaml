@@ -23,7 +23,7 @@
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
                 <Setter Property="FontSize" Value="Large"></Setter>
             </Style>
-            
+
             <Style TargetType="Button" x:Key="ButtonStyleOne">
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
                 <Setter Property="VerticalOptions" Value="End"></Setter>
@@ -45,28 +45,28 @@
                 <Setter Property="Margin" Value="0,20"></Setter>
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
             </Style>
-            
+
             <Style TargetType="BoxView" x:Key="BoxStyleOne">
                 <Setter Property="HeightRequest" Value="5"></Setter>
                 <Setter Property="BackgroundColor" Value="Gray"></Setter>
                 <Setter Property="CornerRadius" Value="50"></Setter>
             </Style>
-            
+
             <Style TargetType="Frame" x:Key="FrameStyleOne">
                 <Setter Property="BackgroundColor" Value="Gray"></Setter>
                 <Setter Property="Padding" Value="0"></Setter>
                 <Setter Property="Margin" Value="5,30"></Setter>
             </Style>
-            
+
             <Style TargetType="Image" x:Key="ImageStyleOne">
                 <Setter Property="HeightRequest" Value="200"></Setter>
                 <Setter Property="WidthRequest" Value="200"></Setter>
                 <Setter Property="Margin" Value="0,5"></Setter>
             </Style>
-            
+
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout Style="{StaticResource WrapperTitulo}">
@@ -77,10 +77,10 @@
                 <Image Source="resvit" Style="{StaticResource ImageStyleOne}"></Image>
             </StackLayout>
             <Frame Style="{StaticResource FrameStyleOne}">
-                <Entry Placeholder="Ingrese su usuario" Style="{StaticResource EntryStyleOne}" x:Name="EntryUser"></Entry>
+                <Entry Text="{Binding CorreoUsuario.Value}" Placeholder="Ingrese su correo electronico" Style="{StaticResource EntryStyleOne}" x:Name="EntryUser"></Entry>
             </Frame>
             <Frame Style="{StaticResource FrameStyleOne}">
-                <Entry Placeholder="Ingrese su password" IsPassword="True" Style="{StaticResource EntryStyleOne}" x:Name="EntryPass"></Entry>
+                <Entry Text="{Binding PasswordUsuario.Value}" Placeholder="Ingrese su contraseña" IsPassword="True" Style="{StaticResource EntryStyleOne}" x:Name="EntryPass"></Entry>
             </Frame>
             <Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}" Command="{Binding LoginCommand}" HorizontalOptions="Center"></Button>
             <Button Text="Registrar" Style="{StaticResource ButtonStyleTwo}" Command="{Binding RegistrarCommand}" HorizontalOptions="Center"></Button>

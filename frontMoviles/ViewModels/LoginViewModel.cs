@@ -17,8 +17,8 @@ namespace frontMoviles.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
-        public ValidatableObject<string> Correo { get; set; }  //Campo de Busqueda
-        public ValidatableObject<string> Password { get; set; }
+        public ValidatableObject<string> CorreoUsuario { get; set; }  //Campo de Busqueda
+        public ValidatableObject<string> PasswordUsuario { get; set; }
 
         public MessageViewPop PopUp { get; set; }
 
@@ -68,11 +68,11 @@ namespace frontMoviles.ViewModels
 
         public void InitializeFields()
         {
-            Correo = new ValidatableObject<string>();
-            Password = new ValidatableObject<string>();
+            CorreoUsuario = new ValidatableObject<string>();
+            PasswordUsuario = new ValidatableObject<string>();
 
-            Correo.Validations.Add(new RequiredRule<string> { ValidationMessage = "El correo es Obligatorio" });
-            Password.Validations.Add(new RequiredRule<string> { ValidationMessage = "La contraseña es Obligatoria" });
+            CorreoUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "El correo es Obligatorio" });
+            PasswordUsuario.Validations.Add(new RequiredRule<string> { ValidationMessage = "La contraseña es Obligatoria" });
         }
 
         public async Task ConsultarUsuario()
@@ -81,10 +81,8 @@ namespace frontMoviles.ViewModels
             {
                 User usuario = new User()
                 {
-                    //Nombre = NombreUsuario.Value,
-                    //Apellido = ApellidoUsuario.Value
-                    Correo = "leo",
-                    Password = "leo",
+                    Correo = CorreoUsuario.Value,
+                    Password = PasswordUsuario.Value
 
                 };
                 APIResponse response = await GetUser.EjecutarEstrategia(usuario);
