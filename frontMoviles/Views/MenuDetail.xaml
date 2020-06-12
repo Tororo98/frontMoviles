@@ -5,11 +5,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="frontMoviles.Views.MenuDetail">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="LabelStyleOne">
+            <Setter Property="TextColor" Value="DarkGreen"></Setter>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center">
-            <Label Text="Detalles" HorizontalOptions="Center"/>
-            <Label x:Name="MyName" HorizontalTextAlignment="Center"/>
-            <Label x:Name="Detail" Margin="20,20" FontSize="Small"/>
+            <Label Text="Detalles" Style="{StaticResource LabelStyleOne}"/>
+            <Label x:Name="MiNombre" HorizontalTextAlignment="Center"/>
+            <Label x:Name="MiDesc" Margin="20,20" FontSize="Small"/>
+            <Label x:Name="MiValor" Margin="20,20" FontSize="Large" HorizontalOptions="Center"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

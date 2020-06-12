@@ -33,7 +33,8 @@ namespace frontMoviles
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new MenuDetail());
+            var details = e.Item as MenuModel;
+            await Navigation.PushAsync(new MenuDetail(details.Nombre, details.Descripcion, details.Valor));
         }
     }
 }

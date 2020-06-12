@@ -12,9 +12,12 @@ namespace frontMoviles.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuDetail : ContentPage
     {
-        public MenuDetail()
+        public MenuDetail(string Nombre, string Descripcion, string Valor)
         {
-            InitializeComponent();        
+            InitializeComponent();
+            MiNombre.Text = Nombre;
+            MiDesc.Text = Descripcion;
+            MiValor.Text = Valor;
         }
     }
 }
