@@ -16,7 +16,7 @@
 
         <Style TargetType="Label" x:Key="LabelStyleOne">
             <Setter Property="TextColor" Value="DarkGreen"></Setter>
-            <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            <Setter Property="HorizontalOptions" Value="Start"></Setter>
             <Setter Property="FontSize" Value="Large"></Setter>
         </Style>
 
@@ -55,17 +55,18 @@
         </Style>
 
         <Style TargetType="Image" x:Key="ImageStyleTwo">
-            <Setter Property="HeightRequest" Value="120"></Setter>
-            <Setter Property="WidthRequest" Value="120"></Setter>
+            <Setter Property="HeightRequest" Value="80"></Setter>
+            <Setter Property="WidthRequest" Value="80"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="HorizontalOptions" Value="Start"></Setter>
             <Setter Property="VerticalOptions" Value="Start"></Setter>
+            <Setter Property="Grid.RowSpan" Value="2"></Setter>
         </Style>
 
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding FoodList}" HasUnevenRows="True" SeparatorVisibility="None">
+        <ListView ItemsSource="{Binding FoodList}" HasUnevenRows="True" SeparatorVisibility="None" ItemTapped="ListView_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -81,6 +82,7 @@
                             <Image Source="curry" Style="{StaticResource ImageStyleTwo}"></Image>
                             <Label Grid.Column="1" Text="{Binding Nombre}" VerticalOptions="End" Style="{StaticResource LabelStyleOne}"/>
                             <Label Grid.Column="1" Grid.Row="1" VerticalOptions="Start" Text="{Binding Descripcion}"></Label>
+                            <Label Grid.Column="1" Grid.Row="1" VerticalOptions="End" Text="{Binding Valor}"></Label>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

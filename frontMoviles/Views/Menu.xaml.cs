@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using frontMoviles.Models;
+using frontMoviles.Services.Navigation;
 using frontMoviles.ViewModels;
 using frontMoviles.Views;
 using Xamarin.Forms;
@@ -30,9 +31,9 @@ namespace frontMoviles
         //    await Navigation.PushAsync(new MainPage());
         //}
 
-        //private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        //{
-
-        //}
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            await Navigation.PushAsync(new MenuDetail());
+        }
     }
 }
